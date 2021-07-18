@@ -36,6 +36,9 @@
     <Filter Include="Header Files\Net">
       <UniqueIdentifier>{64c2ba28-bf90-4b3e-9c26-9c6bc9b6f0bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Net">
+      <UniqueIdentifier>{57c521bf-9d00-4243-a0da-778c0b0aa26a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ChatProject.qrc">
@@ -54,6 +57,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NetManagerClient.cpp">
+      <Filter>Source Files\Net</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,5 +92,10 @@
     <ClInclude Include="..\ChatServer\UserHeader.h">
       <Filter>Header Files\User</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="NetManagerClient.h">
+      <Filter>Header Files\Net</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
