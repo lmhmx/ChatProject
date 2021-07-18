@@ -4,10 +4,6 @@ ChatCoreTask::ChatCoreTask() {
 }
 
 void ChatCoreTask::init() {
-
-	
-	
-	
 	m_UserManager = new UserManager();
 
 	connect(m_UserManager, &UserManager::signalNewMessageFromUser, this, &ChatCoreTask::slotNewMessageFromUser);
