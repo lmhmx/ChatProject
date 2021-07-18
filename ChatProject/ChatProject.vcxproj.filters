@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Form Files\LogIn">
+      <UniqueIdentifier>{3b3868c5-750f-4e47-a198-2ec869603627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Group">
+      <UniqueIdentifier>{a4967582-b2b5-46ce-b1d7-c942cd040e36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Message">
+      <UniqueIdentifier>{ff455aea-9938-41d7-8ae2-d1bf8098acb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\User">
+      <UniqueIdentifier>{2acbd910-4edb-4417-acd6-320af618eb56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Net">
+      <UniqueIdentifier>{64c2ba28-bf90-4b3e-9c26-9c6bc9b6f0bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="ChatProject.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="ChatApp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="ChatClientApp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="ChatClientApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Widget_LogIn_Mail.ui">
+      <Filter>Form Files\LogIn</Filter>
+    </QtUic>
+    <QtUic Include="Widget_LogIn_Phone.ui">
+      <Filter>Form Files\LogIn</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ChatServer\Group.h">
+      <Filter>Header Files\Group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\MessageHeader.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\Message.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\MessageContent.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\UserCore.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\User.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChatServer\UserHeader.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

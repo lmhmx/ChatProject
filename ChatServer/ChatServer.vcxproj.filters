@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\User">
+      <UniqueIdentifier>{05b8cfe6-4b65-48ca-ba7c-0d38d42b6a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DatabaseManager">
+      <UniqueIdentifier>{39311230-7457-4127-8f1b-62112ab20b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Group">
+      <UniqueIdentifier>{28d87c87-66db-42eb-ad81-c79aebd0a492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Message">
+      <UniqueIdentifier>{d1d20551-d2ee-4f93-a18f-c971cc7d2093}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Net">
+      <UniqueIdentifier>{4191b1fe-524c-4ec4-af80-f440fe3600b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UserManager">
+      <UniqueIdentifier>{16b4336f-051b-4730-85f9-fe60499f27f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Net">
+      <UniqueIdentifier>{165898d1-c3b9-4dca-b207-6c8353cc0b5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UserManager">
+      <UniqueIdentifier>{d409191b-11d7-4ea4-9661-546e3988df1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Message">
+      <UniqueIdentifier>{59aae235-da92-4d20-b5e2-d42a241910aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DatabaseManager">
+      <UniqueIdentifier>{90f494ce-a5df-4ad1-bf84-15fae84e24fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User">
+      <UniqueIdentifier>{b9ee35f3-6b1f-478b-bd88-7c706e36e77c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ChatServer.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="ChatServer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="ChatServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NetManager.cpp">
+      <Filter>Source Files\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatCoreTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManager.cpp">
+      <Filter>Source Files\UserManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageContent.cpp">
+      <Filter>Source Files\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Source Files\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageHeader.cpp">
+      <Filter>Source Files\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseManager.cpp">
+      <Filter>Source Files\DatabaseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="UserHeader.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="UserCore.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DatabaseManager.h">
+      <Filter>Header Files\DatabaseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="UserCore.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files\Group</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageHeader.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageContent.h">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserHeader.h">
+      <Filter>Header Files\User</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README-UserManager.md">
+      <Filter>Header Files\UserManager</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="NetManager.h">
+      <Filter>Header Files\Net</Filter>
+    </QtMoc>
+    <QtMoc Include="UserManager.h">
+      <Filter>Header Files\UserManager</Filter>
+    </QtMoc>
+    <QtMoc Include="ChatCoreTask.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="ChatServer.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+</Project>
