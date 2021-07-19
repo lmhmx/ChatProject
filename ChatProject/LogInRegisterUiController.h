@@ -31,15 +31,14 @@ private:
 
 	void slot_register_mail_logIn_click();
 	void slot_register_mail_register_click();
-	void slot_register_mail_forgetPw_click();
 	void slot_register_mail_quit_click();
 	void slot_register_mail_phone_logIn();
 
-	void slot_register_mail_logIn_click();
-	void slot_register_mail_register_click();
-	void slot_register_mail_forgetPw_click();
-	void slot_register_mail_quit_click();
-	void slot_register_mail_phone_logIn();
+	void slot_register_phone_logIn_click();
+	void slot_register_phone_register_click();
+	void slot_register_phone_forgetPw_click();
+	void slot_register_phone_quit_click();
+	void slot_register_phone_phone_logIn();
 
 signals:
 	void signal_LogInByPhone(string phone, string pwd);
