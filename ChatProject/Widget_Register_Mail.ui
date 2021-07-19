@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget_LogIn_Mail</class>
- <widget class="QWidget" name="Widget_LogIn_Mail">
+ <class>Widget_Register_Mail</class>
+ <widget class="QWidget" name="Widget_Register_Mail">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>444</width>
-    <height>413</height>
+    <width>403</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="pushButton_Quit">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>290</y>
+     <x>70</x>
+     <y>270</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -26,11 +26,24 @@
     <string>退出</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_Passwd">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>190</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>密码</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="pushButton_LogIn">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>290</y>
+     <x>310</x>
+     <y>50</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -39,11 +52,37 @@
     <string>登录</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_Mail">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>140</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>邮箱</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_phoneLogIn">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>310</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>电话登录</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="pushButton_Register">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>60</y>
+     <x>210</x>
+     <y>270</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -55,8 +94,8 @@
   <widget class="QLineEdit" name="lineEdit_Mail">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>160</y>
+     <x>170</x>
+     <y>140</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -65,63 +104,34 @@
   <widget class="QLineEdit" name="lineEdit_Passwd">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>210</y>
+     <x>170</x>
+     <y>190</y>
      <width>113</width>
      <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_Mail">
+  <widget class="QLineEdit" name="lineEdit_Passwd_Confirm">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>160</y>
-     <width>55</width>
-     <height>16</height>
+     <x>170</x>
+     <y>230</y>
+     <width>113</width>
+     <height>20</height>
     </rect>
    </property>
-   <property name="text">
-    <string>邮箱</string>
-   </property>
   </widget>
-  <widget class="QLabel" name="label_Passwd">
+  <widget class="QLabel" name="label_Passwd_Confirm">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>210</y>
+     <x>70</x>
+     <y>230</y>
      <width>55</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>密码</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_phoneLogIn">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>330</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>电话登录</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_ForgetPwd">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>330</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>忘记密码</string>
    </property>
   </widget>
  </widget>

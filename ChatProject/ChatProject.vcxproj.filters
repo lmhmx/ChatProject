@@ -36,13 +36,13 @@
     <Filter Include="Source Files\Net">
       <UniqueIdentifier>{57c521bf-9d00-4243-a0da-778c0b0aa26a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Form Files\UiLogIn">
+    <Filter Include="Form Files\UiLogInRegister">
       <UniqueIdentifier>{3b3868c5-750f-4e47-a198-2ec869603627}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LogInUiCOntroller">
+    <Filter Include="Header Files\LogInRegisterUiController">
       <UniqueIdentifier>{83111597-20b4-4060-9154-24379589dea1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\LogInUiController">
+    <Filter Include="Source Files\LogInRegisterUiController">
       <UniqueIdentifier>{3a8c1a28-6f43-4138-a63c-38429d817fbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -67,16 +67,22 @@
     <ClCompile Include="NetManagerClient.cpp">
       <Filter>Source Files\Net</Filter>
     </ClCompile>
-    <ClCompile Include="LogInUiController.cpp">
-      <Filter>Source Files\LogInUiController</Filter>
+    <ClCompile Include="LogInRegisterUiController.cpp">
+      <Filter>Source Files\LogInRegisterUiController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Widget_LogIn_Mail.ui">
-      <Filter>Form Files\UiLogIn</Filter>
+      <Filter>Form Files\UiLogInRegister</Filter>
     </QtUic>
     <QtUic Include="Widget_LogIn_Phone.ui">
-      <Filter>Form Files\UiLogIn</Filter>
+      <Filter>Form Files\UiLogInRegister</Filter>
+    </QtUic>
+    <QtUic Include="Widget_Register_Mail.ui">
+      <Filter>Form Files\UiLogInRegister</Filter>
+    </QtUic>
+    <QtUic Include="Widget_Register_Phone.ui">
+      <Filter>Form Files\UiLogInRegister</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
@@ -101,13 +107,13 @@
     <ClInclude Include="..\ChatServer\UserHeader.h">
       <Filter>Header Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="LogInUiController.h">
-      <Filter>Header Files\LogInUiCOntroller</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NetManagerClient.h">
       <Filter>Header Files\Net</Filter>
+    </QtMoc>
+    <QtMoc Include="LogInRegisterUiController.h">
+      <Filter>Header Files\LogInRegisterUiController</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

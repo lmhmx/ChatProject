@@ -96,7 +96,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LogInUiController.cpp" />
+    <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
     <QtRcc Include="ChatProject.qrc" />
     <QtUic Include="ChatApp.ui" />
@@ -105,6 +105,8 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="Widget_LogIn_Mail.ui" />
     <QtUic Include="Widget_LogIn_Phone.ui" />
+    <QtUic Include="Widget_Register_Mail.ui" />
+    <QtUic Include="Widget_Register_Phone.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h" />
@@ -114,7 +116,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
-    <ClInclude Include="LogInUiController.h" />
+    <QtMoc Include="LogInRegisterUiController.h" />
     <QtMoc Include="NetManagerClient.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

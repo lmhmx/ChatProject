@@ -2,7 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_ChatApp.h"
-# include "LogInUiController.h"
+# include "LogInRegisterUiController.h"
 class ChatClientApp : public QMainWindow
 {
     Q_OBJECT
@@ -12,7 +12,7 @@ public:
 
 
 private:
-    LogInUiController* m_LogInUiController;
+    LogInRegisterUiController* m_LogInRegisterUiController;
 
 private:
     
