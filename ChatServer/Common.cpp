@@ -15,6 +15,7 @@ string addEscapeCharacter(string s, char c){
 				result.push_back(' ');
 			}
 		}
+		return result;
 	}
 }
 vector<string> split(string s, string sep) {
@@ -56,6 +57,8 @@ string deleteEscapeCharacter(string s, char c) {
 				}
 
 			}
+
 		}
+		return result;
 	}
 }
