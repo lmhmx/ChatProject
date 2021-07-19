@@ -23,6 +23,8 @@ public:
 	// Slots
 	void slotReceiveMessage();
 	void slotTryToConnectToServer();
+	void slotSendMessage(const string& m);
+
 signals:
 	void signalReceiveMessage(QTcpSocket* socket, string& s);
 signals:
