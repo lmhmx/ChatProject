@@ -4,16 +4,28 @@ LogInRegisterUiController::LogInRegisterUiController(QWidget* parent):QWidget(pa
 }
 
 bool LogInRegisterUiController::checkLogInMailOK(string mail, string pwd) {
-	return 1;
+	if (mail.size() > 5 && pwd.size() > 5) {
+		return true;
+	}
+	return false;
 }
 bool LogInRegisterUiController::checkLogInPhoneOK(string phone, string pwd) {
-	return 1;
+	if (phone.size() == 11 && pwd.size() > 5) {
+		return true;
+	}
+	return false;
 }
 bool LogInRegisterUiController::checkRegisterMailOK(string mail, string pwd, string confirmPwd) {
-	return 1;
+	if (mail.size() > 5 && pwd.size() > 5 && pwd == confirmPwd) {
+		return true;
+	}
+	return false;
 }
 bool LogInRegisterUiController::checkRegisterPhoneOK(string phone, string pwd, string confirmPwd) {
-	return 1;
+	if (phone.size() == 11 && pwd == confirmPwd && pwd.size() > 5) {
+		return true;
+	}
+	return false;
 }
 
 /*****************************************************************
@@ -52,7 +64,7 @@ void LogInRegisterUiController::slot_logIn_mail_logIn_click() {
 		emit signal_LogInByMail(mail.toStdString(), pwd.toStdString());
 	}
 	else {
-		QMessageBox::warning(0, "error", "mail or pwd is not correct");
+		QMessageBox::warning(0, "error", "mail or pwd is not correct, check your mail or passwd");
 	}
 }
 void LogInRegisterUiController::slot_logIn_mail_register_click() {
@@ -68,7 +80,7 @@ void LogInRegisterUiController::slot_logIn_mail_quit_click() {
 }
 void LogInRegisterUiController::slot_logIn_mail_phone_logIn() {
 	// TODO: 切换到电话界面
-
+	QMessageBox::warning(0, "info", "phone log in hasn't been supported");
 }
 /**********************************************************
 * end of mail log in
@@ -101,13 +113,22 @@ void LogInRegisterUiController::slot_register_mail_logIn_click() {
 }
 void LogInRegisterUiController::slot_register_mail_register_click() {
 	// 邮箱注册
+	QString mail = ui_mail_register.lineEdit_Mail->text();
+	QString pwd = ui_mail_register.lineEdit_Passwd->text();
+	QString confirmPwd = ui_mail_register.lineEdit_Passwd_Confirm->text();
+	if (checkRegisterMailOK(mail.toStdString(), pwd.toStdString(), confirmPwd.toStdString())) {
+		emit signal_RegisterByMail(mail.toStdString(), pwd.toStdString());
+	}
+	else {
+		QMessageBox::warning(0, "info", "mail or passwd is not correct or passwd is not coincident");
+	}
 }
 
 void LogInRegisterUiController::slot_register_mail_quit_click() {
 	exit(0);
 }
 void LogInRegisterUiController::slot_register_mail_phone_logIn() {
-	setPagePhoneLogIn();
+	QMessageBox::warning(0, "info", "phone log in hasn't been supported");
 }
 
 /****************************************************************

@@ -1,6 +1,5 @@
 #include "QtWidgetsApplication1.h"
 # include<qtcpsocket.h>
-# include <qnetwork.h>
 # include <qdebug.h>
 # include <qtcpserver.h>
 QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)

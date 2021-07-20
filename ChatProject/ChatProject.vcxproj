@@ -96,6 +96,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ChatServer\Common.cpp" />
+    <ClCompile Include="..\ChatServer\Message.cpp" />
+    <ClCompile Include="..\ChatServer\MessageContent.cpp" />
+    <ClCompile Include="..\ChatServer\MessageHeader.cpp" />
+    <ClCompile Include="..\ChatServer\User.cpp" />
+    <ClCompile Include="..\ChatServer\UserCore.cpp" />
+    <ClCompile Include="..\ChatServer\UserHeader.cpp" />
     <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
     <QtRcc Include="ChatProject.qrc" />
@@ -105,10 +112,16 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="Widget_LogIn_Mail.ui" />
     <QtUic Include="Widget_LogIn_Phone.ui" />
+    <QtUic Include="Widget_Main.ui" />
     <QtUic Include="Widget_Register_Mail.ui" />
     <QtUic Include="Widget_Register_Phone.ui" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="LogInRegisterUiController.h" />
+    <QtMoc Include="NetManagerClient.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ChatServer\Common.h" />
     <ClInclude Include="..\ChatServer\Group.h" />
     <ClInclude Include="..\ChatServer\Message.h" />
     <ClInclude Include="..\ChatServer\MessageContent.h" />
@@ -116,8 +129,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
-    <QtMoc Include="LogInRegisterUiController.h" />
-    <QtMoc Include="NetManagerClient.h" />
+    <ClInclude Include="Share.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
