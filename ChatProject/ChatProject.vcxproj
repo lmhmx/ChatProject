@@ -105,6 +105,7 @@
     <ClCompile Include="..\ChatServer\UserHeader.cpp" />
     <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
+    <ClCompile Include="MainUiController.cpp" />
     <QtRcc Include="ChatProject.qrc" />
     <QtUic Include="ChatApp.ui" />
     <QtMoc Include="ChatClientApp.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
     <ClInclude Include="Share.h" />
+    <QtMoc Include="MainUiController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

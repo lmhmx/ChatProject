@@ -7,7 +7,7 @@ NetManagerClient::NetManagerClient() {
 }
 void NetManagerClient::init() {
 	m_MAX_MESSAGE_LENGTH = 10240;
-	m_Socket = new QTcpSocket();
+	m_Socket = new QTcpSocket(this);
 	
 	
 	m_ServerAddress.setAddress("127.0.0.1");
@@ -29,10 +29,17 @@ void NetManagerClient::slotReceiveMessage() {
 	emit signalReceiveMessage(m_Socket, message_str);
 }
 void NetManagerClient::slotSendMessage(const string& m) {
-	m_Socket->write(QByteArray::fromStdString(m));
+	
+	if (m_Socket->state() == QAbstractSocket::SocketState::ConnectedState) {
+		QByteArray t = QByteArray::fromStdString(m);
+		m_Socket->write(t);
+	}
+	else {
+		qDebug() << "net not connect";
+	}
 }
 void NetManagerClient::slotTryToConnectToServer() {
-	if (m_Socket->state() != QAbstractSocket::UnconnectedState) {
+	if (m_Socket->state() != QAbstractSocket::ConnectedState) {
 		m_Socket->connectToHost(m_ServerAddress, m_ServerPort);
 	}
 }

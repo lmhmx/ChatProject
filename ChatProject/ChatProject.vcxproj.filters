@@ -54,6 +54,12 @@
     <Filter Include="Source Files\Message">
       <UniqueIdentifier>{c7966b43-8b79-4f13-a439-bc72f204a2b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Widget_Main">
+      <UniqueIdentifier>{98ce8e5b-cc01-45e4-9001-99ebdeee11b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widget_Main">
+      <UniqueIdentifier>{25733c03-c313-481c-9579-6d841bd2b8d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ChatProject.qrc">
@@ -100,6 +106,9 @@
     <ClCompile Include="..\ChatServer\Common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainUiController.cpp">
+      <Filter>Source Files\Widget_Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Widget_LogIn_Mail.ui">
@@ -124,6 +133,9 @@
     </QtMoc>
     <QtMoc Include="LogInRegisterUiController.h">
       <Filter>Header Files\LogInRegisterUiController</Filter>
+    </QtMoc>
+    <QtMoc Include="MainUiController.h">
+      <Filter>Header Files\Widget_Main</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

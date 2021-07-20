@@ -55,7 +55,7 @@ string Message::to_String() {
 	s.append(sep_str);
 
 	// ¼ÓÄÚÈİ
-	s.append(addEscapeCharacter(m_MessageContent, m_Seperator));
+	s.append(addEscapeCharacter(m_MessageContent.to_String(), m_Seperator));
 	s.append(sep_str);
 	return s;
 	
@@ -72,7 +72,8 @@ void Message::copyFromMessage(string s) {
 		m_MessageSender = v_s[1];
 		m_MessageReceiver = v_s[2];
 		m_MessageTime = v_s[3];
-		m_MessageContent = deleteEscapeCharacter(v_s[4], m_Seperator);
+		string content_str = deleteEscapeCharacter(v_s[4], m_Seperator);
+		m_MessageContent = MessageContent::to_MessageContent(content_str);
 		
 	}
 	else {

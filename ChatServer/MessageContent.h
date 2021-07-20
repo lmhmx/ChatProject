@@ -21,6 +21,8 @@ private:
 	void copy(const MessageContent& m);
 
 private:
+
+public:
 	MessageContentType::MessageContentType m_MessageContentType;
 	string m_Content;
 

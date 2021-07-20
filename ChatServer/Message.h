@@ -2,6 +2,7 @@
 # include <string>
 # include <vector>
 # include "MessageHeader.h"
+# include "MessageContent.h"
 # include "Common.h"
 using namespace std;
 class Message {
@@ -23,7 +24,7 @@ private:
 public:
 	MessageType::MessageType m_MessageType;
 	// 将消息以字节的方式存储
-	string m_MessageContent;
+	MessageContent m_MessageContent;
 	string m_MessageTime;
 	string m_MessageReceiver;
 	string m_MessageSender;
