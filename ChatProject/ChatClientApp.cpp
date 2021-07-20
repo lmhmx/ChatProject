@@ -11,7 +11,7 @@ void ChatClientApp::slotLogInByMail(string mail, string pwd) {
     
     Message m;
     m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::LOGIN_request;
-    m.m_MessageContent.m_Content = "";
+    m.m_MessageContent.m_Content = MessageContent::str2Map("");
  
     string content_str = m.m_MessageContent.to_String();
 
@@ -50,7 +50,7 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     Message m;
    
     m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
-    m.m_MessageContent.m_Content = "";
+    m.m_MessageContent.m_Content = MessageContent::str2Map("");
 
     m.m_MessageReceiver = "SuperUserRegister";
 

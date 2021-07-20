@@ -8,7 +8,7 @@ NetManager::NetManager() {
 void NetManager::init() {
 	m_MAX_MESSAGE_LENGTH = 10240;
 	m_Server = new QTcpServer();
-	m_Server->listen();
+	m_Server->listen(QHostAddress::Any, 9527);
 	connect(m_Server, &QTcpServer::newConnection, this, &NetManager::slotNewConnection);
 }
 
@@ -16,8 +16,8 @@ void NetManager::slotNewConnection() {
 	QTcpSocket* socket = m_Server->nextPendingConnection();
 	connect(socket, &QTcpSocket::disconnected, this, &NetManager::slotdisconnected);
 	connect(socket, &QTcpSocket::readyRead, this, &NetManager::slotReceiveMessage);
-
-	emit signalNewConnection(socket);
+	m_Clients.push_back(socket);
+	// emit signalNewConnection(socket);
 }
 void NetManager::slotReceiveMessage() {
 	char* message = new char[m_MAX_MESSAGE_LENGTH];

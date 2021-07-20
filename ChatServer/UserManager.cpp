@@ -5,9 +5,8 @@ UserManager::UserManager() {
 }
 void UserManager::init() {
 	m_NetManager = new NetManager();
-	connect(m_NetManager, &NetManager::signalNewConnection, this, &UserManager::slotNewConnection);
 	connect(m_NetManager, &NetManager::signalDisconnected, this, &UserManager::slotDisconnect);
-
+	connect(m_NetManager, &NetManager::signalReceiveMessage, this, &UserManager::slotNewMessage);
 }
 
 void UserManager::slotDisconnect(QTcpSocket* socket) {
@@ -18,16 +17,16 @@ void UserManager::slotDisconnect(QTcpSocket* socket) {
 		auto iter = m_User2Socket.right.find(socket);
 		m_User2Socket.right.erase(iter); 
 	}
-
 }
-void UserManager::slotNewConnection(QTcpSocket* socket) {
-	User* user = new User();
-	user->init();
 
-	m_User2Socket.insert(boost::bimap<User*, QTcpSocket*>::value_type(user, socket));
-	DatabaseManager::addToTmpUser(user);
+void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
+	auto iter = m_User2Socket.right.find(socket);
+	m_User2Socket.right.erase(iter);
 }
-void UserManager::slotNewMessage(QTcpSocket* socket, string& message) {
+void UserManager::addSocketToUserSocket(QTcpSocket* socket, User* user) {
+	m_User2Socket.left.insert(pair <User*, QTcpSocket* >(user, socket));
+}
+void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
 	
 	auto socket_user =  m_User2Socket.right.find(socket);
 	if (socket_user == m_User2Socket.right.end()) {
@@ -37,28 +36,10 @@ void UserManager::slotNewMessage(QTcpSocket* socket, string& message) {
 		Message m = Message::to_Message(message);
 		User* sender = DatabaseManager::getUserFromUid(m.m_MessageSender);
 		
-		emit signalNewMessageFromUser(sender, message);
-
-		// 如果消息类型是重新登录类型，更新User和socket之间的对应关系  
-		// 消息中包含了User 的信息  
-
-		// socket_user->first;
-
-		// 如果消息类型是消息类型，将消息交给上级进行处理
-		// 
-		
-		
-		// 如果消息类型是注册类型，向上级提交注册类型信息
-		// 
-		// 
-		// 如果消息类型是登录类型，将消息交给上级
-
-
-
-		
+		emit signalNewMessageFromUser(sender, m);
 	}
 }
-void UserManager::sendMessageToUser(User* receiver, string& message) {
+void UserManager::sendMessageToUser(User* receiver, string message) {
 	auto user_socket = m_User2Socket.left.find(receiver);
 	user_socket->second->write(QByteArray::fromStdString(message));
 }

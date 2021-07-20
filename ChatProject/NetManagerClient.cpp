@@ -11,7 +11,7 @@ void NetManagerClient::init() {
 	
 	
 	m_ServerAddress.setAddress("127.0.0.1");
-	m_ServerPort = 9876;
+	m_ServerPort = 9527;
 	m_Socket->connectToHost(m_ServerAddress, m_ServerPort);
 
 	m_ConnectToServerTimer = new QTimer(this);

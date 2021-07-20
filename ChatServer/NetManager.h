@@ -23,11 +23,11 @@ public:
 	void slotdisconnected();
 	void slotReceiveMessage();
 signals:
-	void signalReceiveMessage(QTcpSocket* socket, string& s);
+	void signalReceiveMessage(QTcpSocket* socket, string s);
 signals:
 	void signalDisconnected(QTcpSocket* socket);
-signals:
-	void signalNewConnection(QTcpSocket* socket);
+//signals:
+//	void signalNewConnection(QTcpSocket* socket);
 
 
 private:

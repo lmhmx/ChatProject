@@ -29,20 +29,22 @@ private:
 
 
 public:
-	void sendMessageToUser(User* receicer, string& message);
+	void sendMessageToUser(User* receicer, string message);
 	
+	void removeSocketFromUserSocket(QTcpSocket* socket);
+	void addSocketToUserSocket(QTcpSocket* socket, User* user);
 
 signals:
 	// 
-	void signalNewMessageFromUser(User* sender, string& message);
+	void signalNewMessageFromUser(User* sender, Message message);
 	
 
 
 private:
 	// slots
-	void slotNewConnection(QTcpSocket* socket);
+	// void slotNewConnection(QTcpSocket* socket);
 	void slotDisconnect(QTcpSocket* socket);
-	void slotNewMessage(QTcpSocket* socket, string& s);
+	void slotNewMessage(QTcpSocket* socket, string s);
 
 	
 

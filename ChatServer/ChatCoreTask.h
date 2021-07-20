@@ -17,8 +17,12 @@ private:
 	*     * 调用发送接口，对消息进行转发
 	*     * 对消息进行静默处理（什么都不做）
 	*/
-	void slotNewMessageFromUser(User* sender, string& message);
+	void slotNewMessageFromUser(User* sender, Message message);
 	
+private:
+	void replyToLogIn(Message& message);
+	void replyToRegister(Message& message);
+	void replyToMessage(Message& message);
 
 private:
 	UserManager* m_UserManager;
