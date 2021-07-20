@@ -4,6 +4,7 @@
 
 using namespace std;
 const char MessageContent::m_Seperator = '&';
+const char MessageContent::m_MapSeperator[2] = { ':', ',' };
 
 string MessageContent::to_String(MessageContent m) {
 	return m.to_String();
@@ -61,9 +62,37 @@ void MessageContent::copyFromMessageContent(string s) {
 }
 string MessageContent::map2Str(map<string, string> m) {
 	string res;
+	for (auto i = m.begin(); i != m.end(); i++) {
+		string key = (*i).first;
+		string value = (*i).second;
+		res.append(addEscapeCharacter(addEscapeCharacter(key, m_MapSeperator[0]), m_MapSeperator[1]));
+		res.push_back(m_MapSeperator[0]);
+		res.push_back(m_MapSeperator[0]);
+		res.append(addEscapeCharacter(addEscapeCharacter(value, m_MapSeperator[0]), m_MapSeperator[1]));
+		res.push_back(m_MapSeperator[1]);
+		res.push_back(m_MapSeperator[1]);
+	}
 	return res;
 }
 map<string, string> MessageContent::str2Map(string s) {
 	map<string, string> res;
+	string sep0 = "";
+	sep0.push_back(m_MapSeperator[1]);
+	sep0.push_back(m_MapSeperator[1]);
+	string sep1 = "";
+	sep1.push_back(m_MapSeperator[1]);
+	sep1.push_back(m_MapSeperator[1]);
+	vector<string> v_s = split(s, sep1);
+	for (int i = 0; i < v_s.size(); i++) {
+		string tmp_s = deleteEscapeCharacter(v_s[i], m_MapSeperator[1]);
+		vector<string> key_value = split(tmp_s,sep0,true);
+		if (key_value.size() == 2) {
+			string key;
+			string value;
+			key = deleteEscapeCharacter(key_value[0],m_MapSeperator[0]);
+			value = deleteEscapeCharacter(key_value[1], m_MapSeperator[0]);
+			res[key] = value;
+		}
+	}
 	return res;
 }

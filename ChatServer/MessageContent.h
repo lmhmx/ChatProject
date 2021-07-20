@@ -32,6 +32,6 @@ public:
 
 private:
 	static const char m_Seperator;
-
+	static const char m_MapSeperator[2];
 };
 

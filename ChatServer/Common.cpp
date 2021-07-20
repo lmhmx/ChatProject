@@ -18,15 +18,37 @@ string addEscapeCharacter(string s, char c){
 		return result;
 	}
 }
-vector<string> split(string s, string sep) {
+vector<string> split(string s, string sep, bool reserve_last, bool reserve_last_empty ) {
 	vector<string> v_s;
 	int sep_size = sep.size();
 	int current = 0;
+	string tmp="";
 	for (int i = 0; i < s.size()-sep.size() + 1; i++) {
 		if (s.substr(i, sep_size) == sep) {
-			v_s.push_back(s.substr(current, i - current));
+			v_s.push_back(tmp);
+			// v_s.push_back(s.substr(current, i - current));
 			i = i + sep_size - 1;
+			tmp = "";
 		}
+		else {
+			tmp.push_back(s[i]);
+		}
+	}
+	if (reserve_last) {
+		if (reserve_last_empty) {
+			v_s.push_back(tmp);
+		}
+		else {
+			if (!tmp.empty()) {
+				v_s.push_back(tmp);
+			}
+			else {
+				// do nothing
+			}
+		}
+	}
+	else {
+		// do nothing
 	}
 	return v_s;
 }
