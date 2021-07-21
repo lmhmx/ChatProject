@@ -3,6 +3,8 @@
 # include "UserManager.h"
 # include "DatabaseManager.h"
 # include <qdebug.h>
+# include "SuperUserLogIn.h"
+# include "SuperUserRegister.h"
 class ChatCoreTask:public QObject {
 	Q_OBJECT
 public:
@@ -23,6 +25,11 @@ private:
 	void replyToLogIn(Message& message);
 	void replyToRegister(Message& message);
 	void replyToMessage(Message& message);
+
+
+private:
+	SuperUserLogIn* m_SuperLogIn;
+	SuperUserRegister* m_SuperRegister;
 
 private:
 	UserManager* m_UserManager;

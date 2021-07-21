@@ -5,7 +5,8 @@ ChatCoreTask::ChatCoreTask() {
 
 void ChatCoreTask::init() {
 	m_UserManager = new UserManager();
-
+	m_SuperLogIn = new SuperUserLogIn();
+	m_SuperRegister = new SuperUserRegister();
 	connect(m_UserManager, &UserManager::signalNewMessageFromUser, this, &ChatCoreTask::slotNewMessageFromUser);
 
 
@@ -47,11 +48,13 @@ void ChatCoreTask::replyToRegister(Message& message) {
 		if (way == "MAIL") {
 			string mail = message.m_MessageContent.m_Content["MAIL"];
 			string pwd = message.m_MessageContent.m_Content["PASSWORD"];
-			bool query_succeed = DatabaseManager::queryRegisterAUser(mail, pwd, way);
-			if (query_succeed) {
-				bool do_succeed = DatabaseManager::doReigsterAUser(mail, pwd, way);
-				if (do_succeed) {
+			bool query_succeed = m_SuperRegister->queryRegisterAUser(mail, pwd, way);
 
+			if (query_succeed) {
+				bool do_succeed = m_SuperRegister->doRegisterAUser(mail, pwd, way);
+				if (do_succeed) {
+					Message reply;
+					reply;
 				}
 			}
 		}

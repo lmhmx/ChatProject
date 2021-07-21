@@ -15,7 +15,7 @@ void ChatClientApp::slotLogInByMail(string mail, string pwd) {
     m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
     m.m_MessageContent.m_Content.insert(pair<string, string>("LOGINWAY", "MAIL"));
 
-    m.m_MessageReceiver = "SuperUserLogIn";
+    m.m_MessageReceiver = "@SuperLogIn";
 
     m.m_MessageType = MessageType::MessageType::REGISTER;
 
@@ -53,7 +53,7 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
     m.m_MessageContent.m_Content.insert(pair<string, string>("REGISTERWAY", "MAIL"));
     
-    m.m_MessageReceiver = "SuperUserRegister";
+    m.m_MessageReceiver = "@SuperRegister";
 
     m.m_MessageType = MessageType::MessageType::REGISTER;
 

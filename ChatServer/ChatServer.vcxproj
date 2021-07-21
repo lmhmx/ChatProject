@@ -114,6 +114,8 @@
     <ClCompile Include="MessageContent.cpp" />
     <ClCompile Include="MessageHeader.cpp" />
     <ClCompile Include="NetManager.cpp" />
+    <ClCompile Include="SuperUserLogIn.cpp" />
+    <ClCompile Include="SuperUserRegister.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserCore.cpp" />
     <ClCompile Include="UserHeader.cpp" />
@@ -125,6 +127,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SuperUserLogIn.h" />
+    <ClInclude Include="SuperUserRegister.h" />
     <ClInclude Include="UserHeader.h" />
     <QtMoc Include="ChatCoreTask.h" />
     <ClInclude Include="Common.h" />
