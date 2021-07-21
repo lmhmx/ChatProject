@@ -1,7 +1,7 @@
 #pragma once
-
 #include <QtWidgets/QMainWindow>
 # include "ui_ChatApp.h"
+# include <list>
 # include "LogInRegisterUiController.h"
 # include "NetManagerClient.h"
 # include "Share.h"

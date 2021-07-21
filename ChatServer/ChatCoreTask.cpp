@@ -43,8 +43,23 @@ void ChatCoreTask::replyToLogIn(Message& message) {
 }
 void ChatCoreTask::replyToRegister(Message& message) {
 	if (message.m_MessageType == MessageType::MessageType::REGISTER) {
+		string way = message.m_MessageContent.m_Content["REGISTERWAY"];
+		if (way == "MAIL") {
+			string mail = message.m_MessageContent.m_Content["MAIL"];
+			string pwd = message.m_MessageContent.m_Content["PASSWORD"];
+			bool query_succeed = DatabaseManager::queryRegisterAUser(mail, pwd, way);
+			if (query_succeed) {
+				bool do_succeed = DatabaseManager::doReigsterAUser(mail, pwd, way);
+				if (do_succeed) {
 
-		message.m_MessageContent.m_Content;
+				}
+			}
+		}
+		else if(way == "PHONE"){
+			string phone = message.m_MessageContent.m_Content["PHONE"];
+			string pwd = message.m_MessageContent.m_Content["PASSWORD"];
+			DatabaseManager::queryRegisterAUser(phone, pwd, way);
+		}
 
 	}
 	else {

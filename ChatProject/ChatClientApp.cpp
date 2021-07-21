@@ -8,17 +8,16 @@ ChatClientApp::ChatClientApp(QWidget *parent)
     
 }
 void ChatClientApp::slotLogInByMail(string mail, string pwd) {
-    
     Message m;
-    m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::LOGIN_request;
-    m.m_MessageContent.m_Content = MessageContent::str2Map("");
- 
-    string content_str = m.m_MessageContent.to_String();
+
+    m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
+    m.m_MessageContent.m_Content.insert(pair<string, string>("MAIL", mail));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("LOGINWAY", "MAIL"));
 
     m.m_MessageReceiver = "SuperUserLogIn";
 
-    m.m_MessageType = MessageType::MessageType::LOGIN;
-    
+    m.m_MessageType = MessageType::MessageType::REGISTER;
 
     sendMessage(m);
 
@@ -50,8 +49,10 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     Message m;
    
     m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
-    m.m_MessageContent.m_Content = MessageContent::str2Map("");
-
+    m.m_MessageContent.m_Content.insert(pair<string, string> ("MAIL",mail));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("REGISTERWAY", "MAIL"));
+    
     m.m_MessageReceiver = "SuperUserRegister";
 
     m.m_MessageType = MessageType::MessageType::REGISTER;
