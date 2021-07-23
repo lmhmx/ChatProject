@@ -9,15 +9,13 @@ ChatClientApp::ChatClientApp(QWidget *parent)
 }
 void ChatClientApp::slotLogInByMail(string mail, string pwd) {
     Message m;
-
-    m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
+    m.m_MessageType = MessageType::MessageType::LOGIN;
+    m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::LOGIN_request;
     m.m_MessageContent.m_Content.insert(pair<string, string>("MAIL", mail));
     m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
-    m.m_MessageContent.m_Content.insert(pair<string, string>("LOGINWAY", "MAIL"));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("LOGIN_WAY", "MAIL"));
 
-    m.m_MessageReceiver = "@SuperLogIn";
-
-    m.m_MessageType = MessageType::MessageType::REGISTER;
+    m.m_MessageReceiver = "";
 
     sendMessage(m);
 
@@ -29,6 +27,14 @@ void ChatClientApp::slotNewMessage(string message) {
         if (m.m_MessageContent.m_MessageContentType ==
             MessageContentType::MessageContentType::REGISTER_reply) {
             
+            // TODO: 拆成一个函数，进行补充
+            if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {
+                QMessageBox::information(0, "info", "register succeed");
+            }
+            else {
+                QMessageBox::information(0, "info", "register failed");
+            }
+
 
         }
         break;
@@ -36,7 +42,13 @@ void ChatClientApp::slotNewMessage(string message) {
         if (m.m_MessageContent.m_MessageContentType ==
             MessageContentType::MessageContentType::LOGIN_reply) {
 
-
+            // TODO: 拆成一个函数，进行补充 login
+            if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
+                QMessageBox::information(0, "info", "login succeed");
+            }
+            else {
+                QMessageBox::information(0, "info", "login failed");
+            }
         }
         break;
     default:
@@ -51,9 +63,9 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
     m.m_MessageContent.m_Content.insert(pair<string, string> ("MAIL",mail));
     m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
-    m.m_MessageContent.m_Content.insert(pair<string, string>("REGISTERWAY", "MAIL"));
+    m.m_MessageContent.m_Content.insert(pair<string, string>("REGISTER_WAY", "MAIL"));
     
-    m.m_MessageReceiver = "@SuperRegister";
+    m.m_MessageReceiver = "";
 
     m.m_MessageType = MessageType::MessageType::REGISTER;
 

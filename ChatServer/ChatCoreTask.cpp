@@ -73,6 +73,7 @@ void ChatCoreTask::replyToLogIn(Message& message, QTcpSocket* socket) {
 				reply.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::LOGIN_reply;
 				reply.m_MessageContent.m_Content["LOGIN_RESULT"] = "SUCCEED";
 				reply.m_MessageContent.m_Content["LOG_IN_USER_ID"] = logInUser.m_UserID;
+				
 				m_UserManager->sendMessageToUser(logInUser, reply.to_String());
 				succeed = true;
 				return;
