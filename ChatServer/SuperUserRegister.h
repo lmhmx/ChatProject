@@ -2,20 +2,23 @@
 # include "User.h"
 # include "DatabaseManager.h"
 # include <string>
+# include"DatabaseSuperUserInterface.h"
+# include "User.h"
 using namespace std;
-class SuperUserRegister:public User
+class SuperUserRegister :public User,public DatabaseSuperUserInterface
 {
 public:
 
 	SuperUserRegister();
 	bool queryRegisterAUser(string& phone_mail, string& pwd, string registerway);
-	bool doRegisterAUser(string& phone_mail, string& pwd, string registerway);
+	User* doRegisterAUser(string& phone_mail, string& pwd, string registerway);
+	string getUid();
+	string getPasswd();
+	string getUName();
+	void setUid(string uid);
+	void setPwd(string pwd);
+	void setUname(string uname);
 
-public:
-	// 读取database的密码，id，以及能够被人理解的name
-	string m_DatabasePWD;
-	string m_DatabaseUid;
-	string m_DatabaseUname;
 
 };
 

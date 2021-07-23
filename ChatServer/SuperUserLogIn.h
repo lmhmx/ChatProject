@@ -1,24 +1,23 @@
 #pragma once
 # include "User.h"
+# include "DatabaseSuperUserInterface.h"
 # include "DatabaseManager.h"
 # include <string>
 
 using namespace std;
-class SuperUserLogIn:public User
+class SuperUserLogIn:public DatabaseSuperUserInterface
 {
 public:
 	SuperUserLogIn();
-	bool queryRegisterAUser(string& phone_mail, string& pwd, string registerway);
-	bool doRegisterAUser(string& phone_mail, string& pwd, string registerway);
+	bool queryLoginAUser(string& phone_mail, string& pwd, string loginway);
+	bool doLoginAUser(string& phone_mail, string& pwd, string loginway);
+	string getUid();
+	string getPasswd();
+	string getUName();
+	void setUid(string uid);
+	void setPwd(string pwd);
+	void setUname(string uname);
 
-
-private:
 	
-public:
-	// 读取database的密码，id，以及能够被人理解的name
-	string m_DatabasePWD;
-	string m_DatabaseUid;
-	string m_DatabaseUname;
-
 };
 

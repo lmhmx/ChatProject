@@ -28,7 +28,8 @@ string DatabaseManager::getUidFromPhone(string phone) {
 	return "";
 }
 
-bool DatabaseManager::queryRegisterAUser(string& phone_mail, string& pwd, string registerway) {
+bool DatabaseManager::queryRegisterAUser(string& phone_mail, string& pwd, string registerway, 
+	string uid, string superpwd, string uname) {
 	if (registerway == "PHONE") {
 		string phone = phone_mail;
 
@@ -51,8 +52,9 @@ bool DatabaseManager::queryRegisterAUser(string& phone_mail, string& pwd, string
 	}
 	
 }
-bool DatabaseManager::doReigsterAUser(string& phone_mail, string& pwd, string registerway) {
-	if (queryRegisterAUser(phone_mail, pwd, registerway)) {
+bool DatabaseManager::doReigsterAUser(string& phone_mail, string& pwd, string registerway,
+	string uid, string superpwd, string uname) {
+	if (queryRegisterAUser(phone_mail, pwd, registerway, uid, superpwd, uname)) {
 		User* user = new User();
 		if (registerway == "MAIL") {
 			user->m_UserMail = phone_mail;

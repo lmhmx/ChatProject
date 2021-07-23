@@ -6,7 +6,6 @@
 # include "Group.h"
 # include "Message.h"
 # include "NetManager.h"
-# include "DatabaseManager.h"
 using namespace std;
 /** UserManager Class
 * @brief 管理用户到IP地址的映射，负责发送消息和接收消息
@@ -32,11 +31,11 @@ public:
 	void sendMessageToUser(User* receicer, string message);
 	
 	void removeSocketFromUserSocket(QTcpSocket* socket);
-	void addSocketToUserSocket(QTcpSocket* socket, User* user);
+	void updateSocketToUserSocket(QTcpSocket* socket, User* user);
 
 signals:
 	// 
-	void signalNewMessageFromUser(User* sender, Message message);
+	void signalNewMessageFromUser(Message message, QTcpSocket* socket);
 	
 
 

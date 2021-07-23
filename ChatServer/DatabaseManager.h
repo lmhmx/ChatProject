@@ -11,8 +11,8 @@ public:
 	static Group* getGroupFromGid(string& gid);
 	static string getUidFromMail(string mail);
 	static string getUidFromPhone(string phone);
-	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway);
-	static bool doReigsterAUser(string& phone_mail, string& pwd, string registerway);
+	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string uid, string superpwd,string uname);
+	static bool doReigsterAUser(string& phone_mail, string& pwd, string registerway, string uid, string superpwd, string uname);
 	
 private:
 	static string generateNewUid();

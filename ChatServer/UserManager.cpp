@@ -14,8 +14,7 @@ void UserManager::slotDisconnect(QTcpSocket* socket) {
 		// do nothing
 	}
 	else {
-		auto iter = m_User2Socket.right.find(socket);
-		m_User2Socket.right.erase(iter); 
+		this->removeSocketFromUserSocket(socket);
 	}
 }
 
@@ -23,7 +22,7 @@ void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
 	auto iter = m_User2Socket.right.find(socket);
 	m_User2Socket.right.erase(iter);
 }
-void UserManager::addSocketToUserSocket(QTcpSocket* socket, User* user) {
+void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User* user) {
 	m_User2Socket.left.insert(pair <User*, QTcpSocket* >(user, socket));
 }
 void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
@@ -33,10 +32,8 @@ void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
 		qDebug() << "invalid socket";// 意味着出bug了，没有查到IP对应的用户
 	}
 	else {
-		Message m = Message::to_Message(message);
-		User* sender = DatabaseManager::getUserFromUid(m.m_MessageSender);
-		
-		emit signalNewMessageFromUser(sender, m);
+		Message m = Message::to_Message(message);		
+		emit signalNewMessageFromUser(m, socket);
 	}
 }
 void UserManager::sendMessageToUser(User* receiver, string message) {

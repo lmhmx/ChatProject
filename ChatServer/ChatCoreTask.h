@@ -19,12 +19,12 @@ private:
 	*     * 调用发送接口，对消息进行转发
 	*     * 对消息进行静默处理（什么都不做）
 	*/
-	void slotNewMessageFromUser(User* sender, Message message);
+	void slotNewMessageFromUser(Message message, QTcpSocket* socket);
 	
 private:
-	void replyToLogIn(Message& message);
-	void replyToRegister(Message& message);
-	void replyToMessage(Message& message);
+	void replyToLogIn(Message& message, QTcpSocket* socket);
+	void replyToRegister(Message& message, QTcpSocket* socket);
+	void replyToMessage(Message& message, QTcpSocket* socket);
 
 
 private:

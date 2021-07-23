@@ -110,7 +110,7 @@
     <ClCompile Include="ChatCoreTask.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
-    <ClCompile Include="DatabaseSuperUser.cpp" />
+    <ClCompile Include="DatabaseSuperUserInterface.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MessageContent.cpp" />
     <ClCompile Include="MessageHeader.cpp" />
@@ -128,7 +128,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DatabaseSuperUser.h" />
+    <ClInclude Include="DatabaseSuperUserInterface.h" />
     <ClInclude Include="SuperUserLogIn.h" />
     <ClInclude Include="SuperUserRegister.h" />
     <ClInclude Include="UserHeader.h" />

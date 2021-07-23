@@ -112,10 +112,10 @@
     <ClCompile Include="SuperUserRegister.cpp">
       <Filter>Source Files\SuperAdministrator</Filter>
     </ClCompile>
-    <ClCompile Include="SuperUserLogIn.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="DatabaseSuperUserInterface.cpp">
+      <Filter>Source Files\SuperAdministrator</Filter>
     </ClCompile>
-    <ClCompile Include="DatabaseSuperUser.cpp">
+    <ClCompile Include="SuperUserLogIn.cpp">
       <Filter>Source Files\SuperAdministrator</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,10 +150,10 @@
     <ClInclude Include="SuperUserRegister.h">
       <Filter>Header Files\SuperAdministrator</Filter>
     </ClInclude>
-    <ClInclude Include="SuperUserLogIn.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="DatabaseSuperUserInterface.h">
+      <Filter>Header Files\SuperAdministrator</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseSuperUser.h">
+    <ClInclude Include="SuperUserLogIn.h">
       <Filter>Header Files\SuperAdministrator</Filter>
     </ClInclude>
   </ItemGroup>
