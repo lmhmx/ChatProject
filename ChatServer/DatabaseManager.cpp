@@ -1,4 +1,12 @@
 # include "DatabaseManager.h"
+vector<User*> DatabaseManager::m_Users=vector<User*>();
+vector<Group*> DatabaseManager::m_Groups=vector<Group*>();
+vector<char> DatabaseManager::m_FirstCharacterOfID=vector<char>();
+vector<char> DatabaseManager::m_OtherCharactersOfID=vector<char>();
+
+
+
+
 User DatabaseManager::getUserFromUid(string& uid, 
 	string superuid, string superpwd, string superuname) {
 	if (_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
@@ -70,7 +78,7 @@ User* DatabaseManager::_getUserFromUid(string& uid) {
 	return nullptr;
 }
 Group* DatabaseManager::_getGroupFromGid(string& gid) {
-
+	return 0;
 }
 string DatabaseManager::_getUidFromMail(string mail) {
 	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {

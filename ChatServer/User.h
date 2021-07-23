@@ -15,6 +15,7 @@ public:
 	User operator=(const User& user);
 	bool operator==(const User& user);
 	bool operator!=(const User& user);
+	bool operator<(const User& user);
 private:
 	void copyFrom(const User& user);
 public:

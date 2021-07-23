@@ -16,6 +16,7 @@ User::User(const User& user) {
 }
 User User::operator=(const User& user) {
 	this->copyFrom(user);
+	return *this;
 }
 bool User::operator==(const User& user) {
 	return this->m_UserID == user.m_UserID;
@@ -32,6 +33,13 @@ void User::copyFrom(const User& user) {
 	this->m_UserPasswd = user.m_UserPasswd;
 	this->m_UserPhone = user.m_UserPhone;
 	this->m_UserType = user.m_UserType;
+}
+bool User::operator<(const User& user) {
+	// 这里的比较没有实际的意义，只是为了在查找时能够按照顺序进行快速查找
+	if (this->m_UserID < user.m_UserID) {
+		return true;
+	}
+	return false;
 }
 void User::init() {
 

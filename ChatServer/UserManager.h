@@ -50,7 +50,7 @@ private:
 
 private:
 	boost::bimap<User, QTcpSocket*> m_User2Socket;
-	
+	boost::bimap<
 	NetManager* m_NetManager;
 
 private:
