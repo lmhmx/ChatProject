@@ -5,28 +5,37 @@ SuperUserLogIn::SuperUserLogIn() {
 bool SuperUserLogIn::queryLoginAUser(string& phone_mail, string& pwd, string loginway) {
 	return 1;
 }
+User SuperUserLogIn::getUserFromUid(string uid) {
+	return User();
+}
+string SuperUserLogIn::getUidFromMail(string mail) {
+	return "";
+}
+string SuperUserLogIn::getUidFromPhone(string phone) {
+	return "";
+}
 bool SuperUserLogIn::doLoginAUser(string& phone_mail, string& pwd, string loginway) {
 
 	return 1;
 }
-string SuperUserLogIn::getUid() {
+string SuperUserLogIn::getSuperUid() {
 	return this->m_DatabaseUid;
 }
-string SuperUserLogIn::getPasswd() {
+string SuperUserLogIn::getSuperPasswd() {
 	return this->m_DatabasePWD;
 }
-string SuperUserLogIn::getUName() {
+string SuperUserLogIn::getSuperUName() {
 	return this->m_DatabaseUname;
 }
-void SuperUserLogIn::setUid(string uid) {
+void SuperUserLogIn::setSuperUid(string uid) {
 	this->m_DatabaseUid = uid;
 }
-void SuperUserLogIn::setPwd(string pwd) {
+void SuperUserLogIn::setSuperPwd(string pwd) {
 	this->m_DatabasePWD = pwd;
 
 }
 
-void SuperUserLogIn::setUname(string uname)
+void SuperUserLogIn::setSuperUname(string uname)
 {
 	this->m_DatabaseUname = uname;
 }

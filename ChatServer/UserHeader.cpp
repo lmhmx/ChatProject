@@ -7,6 +7,7 @@ namespace UserType {
 		map<UserType, string> message2str;
 		message2str[UserType::TmpUser] = "TmpUser";
 		message2str[UserType::NormalUser] = "NormalUser";
+		message2str[UserType::DefaultUser] = "DefaultUser";
 		return message2str[m];
 	}
 
@@ -15,7 +16,7 @@ namespace UserType {
 		map<string, UserType> m;
 		m["TmpUser"] = UserType::TmpUser;
 		m["NormalUser"] = UserType::NormalUser;
-		
+		m["DefaultUser"] = UserType::DefaultUser;
 		return m[s];
 	}
 }

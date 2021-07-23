@@ -28,10 +28,11 @@ private:
 
 
 public:
-	void sendMessageToUser(User* receicer, string message);
-	
+	void sendMessageToUser(User receicer, string message);
+	void sendMessageToSocket(QTcpSocket* socket, string message);
+
 	void removeSocketFromUserSocket(QTcpSocket* socket);
-	void updateSocketToUserSocket(QTcpSocket* socket, User* user);
+	void updateSocketToUserSocket(QTcpSocket* socket, User user);
 
 signals:
 	// 
@@ -48,13 +49,13 @@ private:
 	
 
 private:
-	boost::bimap<User*, QTcpSocket*> m_User2Socket;
+	boost::bimap<User, QTcpSocket*> m_User2Socket;
 	
 	NetManager* m_NetManager;
 
 private:
 	// 在任务队列中需要发送的消息
-	map<User*, vector<string>> m_UserWillSendMessage;
+	map<User, vector<string>> m_UserWillSendMessage;
 	// 已经发送需要确认的消息
-	map<User*, vector<string>> m_UserConfirmingMessage;
+	map<User, vector<string>> m_UserConfirmingMessage;
 };

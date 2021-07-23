@@ -8,7 +8,9 @@ void UserManager::init() {
 	connect(m_NetManager, &NetManager::signalDisconnected, this, &UserManager::slotDisconnect);
 	connect(m_NetManager, &NetManager::signalReceiveMessage, this, &UserManager::slotNewMessage);
 }
-
+void  UserManager::sendMessageToSocket(QTcpSocket* socket, string message) {
+	socket->write(QByteArray::fromStdString(message));
+}
 void UserManager::slotDisconnect(QTcpSocket* socket) {
 	if (socket == nullptr) {
 		// do nothing
@@ -22,8 +24,13 @@ void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
 	auto iter = m_User2Socket.right.find(socket);
 	m_User2Socket.right.erase(iter);
 }
-void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User* user) {
-	m_User2Socket.left.insert(pair <User*, QTcpSocket* >(user, socket));
+void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User user) {
+	if (m_User2Socket.right.count(socket) > 0) {
+		m_User2Socket.right[socket] = user;
+	}
+	else {
+		m_User2Socket.left.insert(pair <User, QTcpSocket* >(user, socket));
+	}
 }
 void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
 	
@@ -36,7 +43,7 @@ void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
 		emit signalNewMessageFromUser(m, socket);
 	}
 }
-void UserManager::sendMessageToUser(User* receiver, string message) {
+void UserManager::sendMessageToUser(User receiver, string message) {
 	auto user_socket = m_User2Socket.left.find(receiver);
 	user_socket->second->write(QByteArray::fromStdString(message));
 }

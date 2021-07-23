@@ -84,3 +84,10 @@ string deleteEscapeCharacter(string s, char c) {
 		return result;
 	}
 }
+string strftime(string format, time_t t, int buffer_size) {
+	char* buffer = new char[buffer_size];
+	
+	strftime(buffer, buffer_size, format.c_str(), localtime(&t));
+	string result = buffer;
+	return result;
+}

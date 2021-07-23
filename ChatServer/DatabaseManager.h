@@ -8,8 +8,8 @@
 using namespace std;
 class DatabaseManager {
 public:
-	static User* getUserFromUid(string& uid, string superuid, string superpwd, string superuname);
-	static Group* getGroupFromGid(string& gid, string superuid, string superpwd, string superuname);
+	static User getUserFromUid(string& uid, string superuid, string superpwd, string superuname);
+	static Group getGroupFromGid(string& gid, string superuid, string superpwd, string superuname);
 	static string getUidFromMail(string mail, string superuid, string superpwd, string superuname);
 	static string getUidFromPhone(string phone, string speruid, string superpwd, string superuname);
 	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string superuid, string superpwd,string superuname);

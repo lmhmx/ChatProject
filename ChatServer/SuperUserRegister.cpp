@@ -5,28 +5,28 @@ SuperUserRegister::SuperUserRegister() {
 bool SuperUserRegister::queryRegisterAUser(string& phone_mail, string& pwd, string registerway) {
 	return 0;
 }
-User* SuperUserRegister::doRegisterAUser(string& phone_mail, string& pwd, string registerway) {
+User SuperUserRegister::doRegisterAUser(string& phone_mail, string& pwd, string registerway) {
 	
-	return 0;
+	return User();
 }
-string SuperUserRegister::getUid() {
+string SuperUserRegister::getSuperUid() {
 	return this->m_DatabaseUid;
 }
-string SuperUserRegister::getPasswd() {
+string SuperUserRegister::getSuperPasswd() {
 	return this->m_DatabasePWD;
 }
-string SuperUserRegister::getUName() {
+string SuperUserRegister::getSuperUName() {
 	return this->m_DatabaseUname;
 }
-void SuperUserRegister::setUid(string uid) {
+void SuperUserRegister::setSuperUid(string uid) {
 	this->m_DatabaseUid = uid;
 }
-void SuperUserRegister::setPwd(string pwd){
+void SuperUserRegister::setSuperPwd(string pwd){
 	this->m_DatabasePWD = pwd;
 	
 }
 
-void SuperUserRegister::setUname(string uname)
+void SuperUserRegister::setSuperUname(string uname)
 {
 	this->m_DatabaseUname = uname;
 }

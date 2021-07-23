@@ -11,13 +11,13 @@ public:
 
 	SuperUserRegister();
 	bool queryRegisterAUser(string& phone_mail, string& pwd, string registerway);
-	User* doRegisterAUser(string& phone_mail, string& pwd, string registerway);
-	string getUid();
-	string getPasswd();
-	string getUName();
-	void setUid(string uid);
-	void setPwd(string pwd);
-	void setUname(string uname);
+	User doRegisterAUser(string& phone_mail, string& pwd, string registerway);
+	string getSuperUid();
+	string getSuperPasswd();
+	string getSuperUName();
+	void setSuperUid(string uid);
+	void setSuperPwd(string pwd);
+	void setSuperUname(string uname);
 
 
 };

@@ -1,16 +1,20 @@
 # include "DatabaseManager.h"
-User* DatabaseManager::getUserFromUid(string& uid, 
+User DatabaseManager::getUserFromUid(string& uid, 
 	string superuid, string superpwd, string superuname) {
 	if (_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
-		return _getUserFromUid(uid);
+		User* user = _getUserFromUid(uid);
+		if (user == nullptr) {
+			return User::UserDefault;
+		}
+		
 	}
-	return nullptr;
+	return User::UserDefault;
 }
 
-Group* DatabaseManager::getGroupFromGid(string& gid, 
+Group DatabaseManager::getGroupFromGid(string& gid, 
 	string superuid, string superpwd, string superuname) {
 	throw exception("Group* DatabaseManager::getGroupFromGid(string& gid) not finished yet");
-	return 0;
+	return Group();
 }
 string DatabaseManager::getUidFromMail(string mail, 
 	string superuid, string superpwd, string superuname) {
@@ -164,7 +168,7 @@ void DatabaseManager::checkCharacters() {
 		}
 	}
 }
-bool _checkAuthority(Authorization authorization,
+bool  DatabaseManager::_checkAuthority(Authorization authorization,
 	string superuid, string superpwd, string superunam) {
 	return true;
 }

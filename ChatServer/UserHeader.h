@@ -7,8 +7,8 @@ namespace UserType {
 	enum class UserType {
 		// 
 		TmpUser,
-		NormalUser
-
+		NormalUser,
+		DefaultUser
 	};
 	string to_String(UserType m);
 	UserType FromString(string s);
