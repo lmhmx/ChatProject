@@ -118,6 +118,9 @@
     <ClCompile Include="SuperUserLogIn.cpp">
       <Filter>Source Files\SuperAdministrator</Filter>
     </ClCompile>
+    <ClCompile Include="Authorization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseManager.h">
@@ -155,6 +158,9 @@
     </ClInclude>
     <ClInclude Include="SuperUserLogIn.h">
       <Filter>Header Files\SuperAdministrator</Filter>
+    </ClInclude>
+    <ClInclude Include="Authorization.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

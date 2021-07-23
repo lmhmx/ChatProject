@@ -4,19 +4,30 @@
 # include <vector>
 # include <regex>
 # include <exception>
+# include "Authorization.h"
 using namespace std;
 class DatabaseManager {
 public:
-	static User* getUserFromUid(string& uid);
-	static Group* getGroupFromGid(string& gid);
-	static string getUidFromMail(string mail);
-	static string getUidFromPhone(string phone);
-	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string uid, string superpwd,string uname);
-	static bool doReigsterAUser(string& phone_mail, string& pwd, string registerway, string uid, string superpwd, string uname);
+	static User* getUserFromUid(string& uid, string superuid, string superpwd, string superuname);
+	static Group* getGroupFromGid(string& gid, string superuid, string superpwd, string superuname);
+	static string getUidFromMail(string mail, string superuid, string superpwd, string superuname);
+	static string getUidFromPhone(string phone, string speruid, string superpwd, string superuname);
+	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string superuid, string superpwd,string superuname);
+	static bool doReigsterAUser(string& phone_mail, string& pwd, string registerway, string superuid, string superpwd, string superuname);
 	
 private:
 	static string generateNewUid();
 	static string generateNewGid();
+
+	static User* _getUserFromUid(string& uid);
+	static Group* _getGroupFromGid(string& gid);
+	static string _getUidFromMail(string mail);
+	static string _getUidFromPhone(string phone);
+	static bool _queryRegisterAUser(string& phone_mail, string& pwd, string registerway);
+	static bool _doReigsterAUser(string& phone_mail, string& pwd, string registerway);
+
+	static bool _checkAuthority(Authorization authorization, string superuid, string superpwd, string superunam);
+
 private:
 	static char getRandomFromVector(vector<char> v);
 	static void checkCharacters();

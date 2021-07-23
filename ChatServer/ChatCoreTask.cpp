@@ -1,4 +1,5 @@
 # include "ChatCoreTask.h"
+
 ChatCoreTask::ChatCoreTask() {
 	init();
 }
