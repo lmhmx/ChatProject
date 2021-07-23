@@ -81,14 +81,7 @@ void ChatClientApp::sendMessage(Message& m) {
 
 }
 void ChatClientApp::setPageLogInRegisterWindow() {
-    //for (auto i = centralWidget()->children().begin(); i <  centralWidget()->children().end(); i++) {
-    //    delete (*i);
-    //}
-
-    //for (auto i = children().begin(); i < children().end(); i++) {
-    //    qobject_cast<QWidget*>(*i)->show();
-    //}
-    //
+    
     m_LogInRegisterUiController = new LogInRegisterUiController();
     this->setCentralWidget(m_LogInRegisterUiController);
     connect(m_LogInRegisterUiController, &LogInRegisterUiController::signal_LogInByMail,
