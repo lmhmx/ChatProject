@@ -26,10 +26,10 @@ void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
 }
 void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User user) {
 	if (m_User2Socket.right.count(socket) > 0) {
-		m_User2Socket.right[socket] = user;
+		m_User2Socket.right.insert({ socket, user});
 	}
 	else {
-		m_User2Socket.left.insert(pair <User, QTcpSocket* >(user, socket));
+		m_User2Socket.left.insert({ user, socket });
 	}
 }
 void UserManager::slotNewMessage(QTcpSocket* socket, string message) {

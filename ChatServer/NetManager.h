@@ -26,8 +26,6 @@ signals:
 	void signalReceiveMessage(QTcpSocket* socket, string s);
 signals:
 	void signalDisconnected(QTcpSocket* socket);
-//signals:
-//	void signalNewConnection(QTcpSocket* socket);
 
 
 private:
