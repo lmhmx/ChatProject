@@ -145,16 +145,6 @@ string DatabaseManager::generateNewGid() {
 	}
 	return gid;
 }
-char DatabaseManager::getRandomFromVector(vector<char> v) {
-	if (v.size() == 0) {
-		throw "vector length is 0";
-	}
-	else {
-		srand(time(0));
-		int index = rand()%v.size();
-		return v[index];
-	}
-}
 void DatabaseManager::checkCharacters() {
 	if (m_FirstCharacterOfID.size() == 0) {
 		for (char i = 'a'; i <= 'z'; i++) {

@@ -26,6 +26,11 @@ private:
 	void replyToRegister(Message& message, QTcpSocket* socket);
 	void replyToMessage(Message& message, QTcpSocket* socket);
 
+private:
+	string generateNewCertifacate();
+	bool checkUserCertifacate(string uid, string certifacate);
+	void addUserCertifacate(string uid, string certifacate);
+	void removeCertifacate(string uid, string certifacate);
 
 private:
 	SuperUserLogIn* m_SuperLogIn;
@@ -33,5 +38,5 @@ private:
 
 private:
 	UserManager* m_UserManager;
-	
+	map<string, string> m_CertifacatesForUid;
 };
