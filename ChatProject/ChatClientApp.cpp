@@ -20,36 +20,54 @@ void ChatClientApp::slotLogInByMail(string mail, string pwd) {
     sendMessage(m);
 
 }
+void ChatClientApp::slotLogInSucceed(string uid, string certificate) {
+    m_User.m_UserID = uid;
+    m_OnlineCertificate = certificate;
+    setPageMainWindow();
+}
+void ChatClientApp::slotRegisterSucceed(string uid, string certificate) {
+    m_User.m_UserID = uid;
+    m_OnlineCertificate = certificate;
+    setPageMainWindow();
+}
+void ChatClientApp::replyToLogInMessage(Message m) {
+    if (m.m_MessageContent.m_MessageContentType ==
+        MessageContentType::MessageContentType::LOGIN_reply) {
+        if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
+            // QMessageBox::information(0, "info", "login succeed");
+            string uid = m.m_MessageContent.m_Content["LOG_IN_USER_ID"];
+            string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
+            emit signal_LogInSucceed(uid, certificate);
+        }
+        else {
+            QMessageBox::information(0, "info", "login failed");
+        }
+    }
+}
+void ChatClientApp::replyToRegisterMessage(Message m) {
+    if (m.m_MessageContent.m_MessageContentType ==
+        MessageContentType::MessageContentType::REGISTER_reply) {
+        if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {
+            // QMessageBox::information(0, "info", "register succeed");
+            string uid = m.m_MessageContent.m_Content["REGISTER_UID"];
+            string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
+            emit signal_RegisterSucceed(uid, certificate);
+        }
+        else {
+            QMessageBox::information(0, "info", "register failed");
+        }
+
+
+    }
+}
 void ChatClientApp::slotNewMessage(string message) {
     Message m = Message::to_Message(message);
     switch (m.m_MessageType) {
     case MessageType::MessageType::REGISTER:
-        if (m.m_MessageContent.m_MessageContentType ==
-            MessageContentType::MessageContentType::REGISTER_reply) {
-            
-            // TODO: 拆成一个函数，进行补充
-            if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {
-                QMessageBox::information(0, "info", "register succeed");
-            }
-            else {
-                QMessageBox::information(0, "info", "register failed");
-            }
-
-
-        }
+        replyToRegisterMessage(m);
         break;
     case MessageType::MessageType::LOGIN:
-        if (m.m_MessageContent.m_MessageContentType ==
-            MessageContentType::MessageContentType::LOGIN_reply) {
-
-            // TODO: 拆成一个函数，进行补充 login
-            if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
-                QMessageBox::information(0, "info", "login succeed");
-            }
-            else {
-                QMessageBox::information(0, "info", "login failed");
-            }
-        }
+        replyToLogInMessage(m);
         break;
     default:
         break;
