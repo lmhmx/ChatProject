@@ -18,6 +18,17 @@ string addEscapeCharacter(string s, char c){
 		return result;
 	}
 }
+
+char getRandomFromVector(vector<char> v) {
+	if (v.size() == 0) {
+		throw "vector length is 0";
+	}
+	else {
+		srand(time(0));
+		int index = rand() % v.size();
+		return v[index];
+	}
+}
 vector<string> split(string s, string sep, bool reserve_last, bool reserve_last_empty ) {
 	vector<string> v_s;
 	int sep_size = sep.size();

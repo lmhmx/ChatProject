@@ -5,6 +5,7 @@
 # include <regex>
 # include <exception>
 # include "Authorization.h"
+# include "Common.h"
 using namespace std;
 class DatabaseManager {
 public:
@@ -29,7 +30,7 @@ private:
 	static bool _checkAuthority(Authorization authorization, string superuid, string superpwd, string superunam);
 
 private:
-	static char getRandomFromVector(vector<char> v);
+	
 	static void checkCharacters();
 private:
 	static vector<User*> m_Users;

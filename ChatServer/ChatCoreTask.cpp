@@ -71,6 +71,9 @@ void ChatCoreTask::replyToLogIn(Message& message, QTcpSocket* socket) {
 				reply.m_MessageSender = m_SuperLogIn->m_UserID;
 				reply.m_MessageType = MessageType::MessageType::LOGIN;
 				reply.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::LOGIN_reply;
+				string certifacate = generateNewCertifacate();
+				addUserCertifacate(logInUser.m_UserID, certifacate);
+				reply.m_MessageContent.m_Content["CERTIFACATE"] = certifacate;
 				reply.m_MessageContent.m_Content["LOGIN_RESULT"] = "SUCCEED";
 				reply.m_MessageContent.m_Content["LOG_IN_USER_ID"] = logInUser.m_UserID;
 				
@@ -119,6 +122,9 @@ void ChatCoreTask::replyToRegister(Message& message, QTcpSocket* socket) {
 				reply.m_MessageSender = m_SuperRegister->m_UserID;
 				reply.m_MessageType = MessageType::MessageType::REGISTER;
 				reply.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_reply;
+				string certifacate = generateNewCertifacate();
+				addUserCertifacate(registeruser.m_UserID, certifacate);
+				reply.m_MessageContent.m_Content["CERTIFACATE"] = certifacate;
 				reply.m_MessageContent.m_Content["REGISTER_RESULT"] = "SUCCEED";
 				reply.m_MessageContent.m_Content["REGISTER_USER_ID"] = registeruser.m_UserID;
 				m_UserManager->sendMessageToUser(registeruser, reply.to_String());
@@ -141,6 +147,35 @@ void ChatCoreTask::replyToRegister(Message& message, QTcpSocket* socket) {
 	}
 }
 
+string ChatCoreTask::generateNewCertifacate() {
+	string certifacate;
+	int N = 20;
+	vector<char> v;
+	for (char c = 'a'; c <= 'z'; c++) {
+		v.push_back(c);
+	}
+	for (int i = 0; i < N; i++) {
+		certifacate.push_back(getRandomFromVector(v));
+	}
+	return certifacate;
+}
+bool ChatCoreTask::checkUserCertifacate(string uid, string certifacate) {
+	if (m_CertifacatesForUid.find(uid) == m_CertifacatesForUid.end()) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+void ChatCoreTask::addUserCertifacate(string uid, string certifacate) {
+	m_CertifacatesForUid[uid] = certifacate;
+}
+void ChatCoreTask::removeCertifacate(string uid, string certifacate) {
+	auto iter = m_CertifacatesForUid.find(uid);
+	if (iter != m_CertifacatesForUid.end()) {
+		m_CertifacatesForUid.erase(iter);
+	}
+}
 void ChatCoreTask::replyToMessage(Message& message, QTcpSocket* socket) {
 	if (message.m_MessageType == MessageType::MessageType::MESSAGE) {
 
