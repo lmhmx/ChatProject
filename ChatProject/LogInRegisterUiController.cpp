@@ -113,11 +113,13 @@ void LogInRegisterUiController::slot_register_mail_logIn_click() {
 }
 void LogInRegisterUiController::slot_register_mail_register_click() {
 	// ÓÊÏä×¢²á
-	QString mail = ui_mail_register.lineEdit_Mail->text();
-	QString pwd = ui_mail_register.lineEdit_Passwd->text();
-	QString confirmPwd = ui_mail_register.lineEdit_Passwd_Confirm->text();
-	if (checkRegisterMailOK(mail.toStdString(), pwd.toStdString(), confirmPwd.toStdString())) {
-		emit signal_RegisterByMail(mail.toStdString(), pwd.toStdString());
+	string mail = ui_mail_register.lineEdit_Mail->text().toStdString();
+	string pwd = ui_mail_register.lineEdit_Passwd->text().toStdString();
+	string confirmPwd = ui_mail_register.lineEdit_Passwd_Confirm->text().toStdString();
+	if (checkRegisterMailOK(mail, pwd, confirmPwd)) {
+		qDebug() << "emit register by mail signal begin";
+		emit signal_RegisterByMail(mail, pwd);
+		qDebug() << "emit register by mail signal end";
 	}
 	else {
 		QMessageBox::warning(0, "info", "mail or passwd is not correct or passwd is not coincident");

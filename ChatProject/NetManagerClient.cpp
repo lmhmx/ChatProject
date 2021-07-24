@@ -3,7 +3,7 @@
 using namespace std;
 NetManagerClient::NetManagerClient() {
 	init();
-
+	
 }
 void NetManagerClient::init() {
 	m_MAX_MESSAGE_LENGTH = 10240;
@@ -13,7 +13,7 @@ void NetManagerClient::init() {
 	m_ServerAddress.setAddress("127.0.0.1");
 	m_ServerPort = 9527;
 	m_Socket->connectToHost(m_ServerAddress, m_ServerPort);
-
+	
 	m_ConnectToServerTimer = new QTimer(this);
 	connect(m_Socket, &QTcpSocket::readyRead, this, &NetManagerClient::slotReceiveMessage);
 	connect(m_ConnectToServerTimer, &QTimer::timeout, this, &NetManagerClient::slotTryToConnectToServer);
@@ -40,6 +40,10 @@ void NetManagerClient::slotSendMessage(const string& m) {
 }
 void NetManagerClient::slotTryToConnectToServer() {
 	if (m_Socket->state() != QAbstractSocket::ConnectedState) {
+		qDebug() << "try to connect to host: "
+			<< " address "  << m_ServerAddress
+			<<" port " << m_ServerPort;
 		m_Socket->connectToHost(m_ServerAddress, m_ServerPort);
 	}
+
 }

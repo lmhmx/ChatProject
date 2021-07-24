@@ -58,23 +58,24 @@ void ChatClientApp::slotNewMessage(string message) {
 }
 
 void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
+    qDebug() << "ChatClientApp slot Register By Mail start";
     Message m;
-   
     m.m_MessageContent.m_MessageContentType = MessageContentType::MessageContentType::REGISTER_request;
-    m.m_MessageContent.m_Content.insert(pair<string, string> ("MAIL",mail));
-    m.m_MessageContent.m_Content.insert(pair<string, string>("PASSWORD", pwd));
-    m.m_MessageContent.m_Content.insert(pair<string, string>("REGISTER_WAY", "MAIL"));
+    m.m_MessageContent.m_Content.insert({ "MAIL",mail });
+    m.m_MessageContent.m_Content.insert({"PASSWORD", pwd});
+    m.m_MessageContent.m_Content.insert({"REGISTER_WAY", "MAIL"});
     
     m.m_MessageReceiver = "";
 
     m.m_MessageType = MessageType::MessageType::REGISTER;
 
     sendMessage(m);
+    qDebug() << "ChatClientApp slot Register By Mail end";
 }
 void ChatClientApp::sendMessage(Message& m) {
-
+    qDebug() << "ChatClientApp send Message begin";
     string s = m.to_String();
-
+    qDebug() << "change end";
     m_NetManagerClient->slotSendMessage(s);
 
     qDebug() << QString::fromStdString(s);
@@ -86,7 +87,7 @@ void ChatClientApp::setPageLogInRegisterWindow() {
     this->setCentralWidget(m_LogInRegisterUiController);
     connect(m_LogInRegisterUiController, &LogInRegisterUiController::signal_LogInByMail,
         this, &ChatClientApp::slotLogInByMail);
-    connect(m_LogInRegisterUiController, &LogInRegisterUiController::signal_LogInByPhone,
+    connect(m_LogInRegisterUiController, &LogInRegisterUiController::signal_RegisterByMail,
         this, &ChatClientApp::slotRegisterByMail);
     
 
