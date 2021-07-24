@@ -41,6 +41,13 @@ bool User::operator<(const User& user) {
 	}
 	return false;
 }
+bool User::operator<(const User& user)const {
+	// 这里的比较没有实际的意义，只是为了在查找时能够按照顺序进行快速查找
+	if (this->m_UserID < user.m_UserID) {
+		return true;
+	}
+	return false;
+}
 void User::init() {
 
 }

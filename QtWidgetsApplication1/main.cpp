@@ -4,28 +4,56 @@
 #include <iostream>
 # include <qdebug.h>
 # include <map>
-class AA {
+using namespace std;
+class Mystring//:public string
+{
+
 public :
-	AA(int m) {
-		this->m = m;
+	Mystring(int m) {
+		m_m = m;
 	}
-	/*bool operator==(AA a) {
-		return m == a.m;
+	bool operator<(const Mystring a)const {
+		bool r = m_m < a.m_m;
+		cout << " less res " << r << endl;
+		return r;
 	}
-	bool operator<(AA a) {
-		return m < a.m;
+	bool operator<(const Mystring a) {
+		bool r = m_m < a.m_m;
+		cout << " less res " << r << endl;
+		return r;
 	}
-	bool less(AA a) {
-		return m < a.m;
+	bool operator>(const Mystring& a) {
+		bool r = m_m > a.m_m;
+		cout << " greater res " << r << endl;
+		return r;
+	}
+	bool operator==(const Mystring& a) {
+		bool r = m_m == a.m_m;
+		cout << " greater res " << r << endl;
+		return r;
+	}
+	
+	/*bool less<Mystring>::operator()(const Mystring& s1, const Mystring& s2) {
+		return 1;
 	}*/
-	int m;
+	
+
+public:
+	int m_m;
 };
 using namespace std;
 int main()
 {
-	map<AA, int> m;
 	
+	boost::bimap<Mystring, int> m;
+	Mystring a(1);
+	Mystring b(2);
+	m.insert({ a,1 });
+	m.insert({ b,4 });
+
+
 	
+	cout << (a < b);
 	
 	/*animals.insert({ AA(2), 4 });
 	animals.insert({ AA(3), 4 });
