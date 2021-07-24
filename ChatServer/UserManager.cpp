@@ -22,28 +22,27 @@ void UserManager::slotDisconnect(QTcpSocket* socket) {
 
 void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
 	auto iter = m_User2Socket.right.find(socket);
-	m_User2Socket.right.erase(iter);
+	if (iter != m_User2Socket.right.end()) {
+		m_User2Socket.right.erase(iter);
+	}
+	else {
+		qDebug() << "invalid socket";
+	}
 }
 void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User user) {
-	if (m_User2Socket.right.count(socket) > 0) {
-		m_User2Socket.right.insert({ socket, user});
-	}
-	else {
-		m_User2Socket.left.insert({ user, socket });
-	}
+	m_User2Socket.left.insert({ user,socket });
+	
 }
 void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
-	
-	auto socket_user =  m_User2Socket.right.find(socket);
-	if (socket_user == m_User2Socket.right.end()) {
-		qDebug() << "invalid socket";// 意味着出bug了，没有查到IP对应的用户
-	}
-	else {
-		Message m = Message::to_Message(message);		
-		emit signalNewMessageFromUser(m, socket);
-	}
+	Message m = Message::to_Message(message);
+	emit signalNewMessageFromUser(m, socket);
 }
 void UserManager::sendMessageToUser(User receiver, string message) {
 	auto user_socket = m_User2Socket.left.find(receiver);
-	user_socket->second->write(QByteArray::fromStdString(message));
+	if (user_socket != m_User2Socket.left.end()) {
+		user_socket->second->write(QByteArray::fromStdString(message));
+	}
+	else {
+		qDebug() << "invalid user";
+	}
 }
