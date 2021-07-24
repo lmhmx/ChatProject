@@ -4,8 +4,6 @@ using namespace std;
 const char Message::m_Seperator = '&';
 
 Message::Message() {
-	exit(0);
-	system("pause");
 	this->m_MessageType = MessageType::MessageType::MESSAGE;
 }
 Message::Message(const Message& m) {

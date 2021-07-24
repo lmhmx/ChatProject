@@ -21,9 +21,10 @@ string addEscapeCharacter(string s, char c){
 vector<string> split(string s, string sep, bool reserve_last, bool reserve_last_empty ) {
 	vector<string> v_s;
 	int sep_size = sep.size();
+	int s_size = s.size();
 	int current = 0;
 	string tmp="";
-	for (int i = 0; i < s.size()-sep.size() + 1; i++) {
+	for (int i = 0; i < s_size-sep_size + 1; i++) {
 		if (s.substr(i, sep_size) == sep) {
 			v_s.push_back(tmp);
 			// v_s.push_back(s.substr(current, i - current));
