@@ -106,6 +106,6 @@ string strftime(string format, time_t t, int buffer_size) {
 	
 	strftime(buffer, buffer_size, format.c_str(), localtime(&t));
 	string result = buffer;
-	delete buffer;
+	delete[] buffer;
 	return result;
 }
