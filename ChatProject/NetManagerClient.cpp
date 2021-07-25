@@ -22,16 +22,17 @@ void NetManagerClient::init() {
 
 
 void NetManagerClient::slotReceiveMessage() {
-	char* message = new char[m_MAX_MESSAGE_LENGTH];
+	char* message = new char[m_MAX_MESSAGE_LENGTH] {'\0'};
 	m_Socket->read(message, m_MAX_MESSAGE_LENGTH);
 	string message_str = message;
-	qDebug() << message;
-	emit signalReceiveMessage(m_Socket, message_str);
+	qDebug() <<"NetManagerClient::slotReceiveMessage: "<< message;
+	emit signalReceiveMessage(message_str);
 }
 void NetManagerClient::slotSendMessage(const string& m) {
 	
 	if (m_Socket->state() == QAbstractSocket::SocketState::ConnectedState) {
 		QByteArray t = QByteArray::fromStdString(m);
+		qDebug() <<"NetManagerClient::slotSendMessage: "<< t;
 		m_Socket->write(t);
 	}
 	else {

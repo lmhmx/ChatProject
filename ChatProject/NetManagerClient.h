@@ -26,7 +26,7 @@ public:
 	void slotSendMessage(const string& m);
 
 signals:
-	void signalReceiveMessage(QTcpSocket* socket, string& s);
+	void signalReceiveMessage(string& s);
 signals:
 	void signalDisconnected(QTcpSocket* socket);
 
