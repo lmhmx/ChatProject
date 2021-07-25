@@ -3,6 +3,12 @@ ChatClientApp::ChatClientApp(QWidget *parent)
     : QMainWindow(parent)
 {
     m_NetManagerClient = new NetManagerClient();
+    connect(this, &ChatClientApp::signal_RegisterSucceed,
+        this, &ChatClientApp::slotRegisterSucceed);
+    connect(this, &ChatClientApp::signal_LogInSucceed,
+        this, &ChatClientApp::slotLogInSucceed);
+    connect(m_NetManagerClient, &NetManagerClient::signalReceiveMessage,
+        this, &ChatClientApp::slotNewMessage);
     ui.setupUi(this);
     setPageLogInRegisterWindow();
     
@@ -34,7 +40,7 @@ void ChatClientApp::replyToLogInMessage(Message m) {
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::LOGIN_reply) {
         if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
-            // QMessageBox::information(0, "info", "login succeed");
+            QMessageBox::information(0, "info", "login succeed");
             string uid = m.m_MessageContent.m_Content["LOG_IN_USER_ID"];
             string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
             emit signal_LogInSucceed(uid, certificate);
@@ -48,9 +54,10 @@ void ChatClientApp::replyToRegisterMessage(Message m) {
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::REGISTER_reply) {
         if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {
-            // QMessageBox::information(0, "info", "register succeed");
+            QMessageBox::information(0, "info", "register succeed");
             string uid = m.m_MessageContent.m_Content["REGISTER_UID"];
             string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
+            qDebug() << "register succeed";
             emit signal_RegisterSucceed(uid, certificate);
         }
         else {
@@ -70,6 +77,7 @@ void ChatClientApp::slotNewMessage(string message) {
         replyToLogInMessage(m);
         break;
     default:
+        qDebug() << MessageType::to_String(m.m_MessageType).c_str();
         break;
     }
     

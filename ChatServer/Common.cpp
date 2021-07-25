@@ -20,11 +20,17 @@ string addEscapeCharacter(string s, char c){
 }
 
 char getRandomFromVector(vector<char> v) {
+	static unsigned int seed = time(0);
+	static bool srand_flag = false;
+	if (!srand_flag) {
+		srand(seed);
+		srand_flag = true;
+	}
 	if (v.size() == 0) {
 		throw "vector length is 0";
 	}
 	else {
-		srand(time(0));
+		
 		int index = rand() % v.size();
 		return v[index];
 	}
