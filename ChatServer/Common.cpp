@@ -20,15 +20,22 @@ string addEscapeCharacter(string s, char c){
 }
 
 char getRandomFromVector(vector<char> v) {
+	static unsigned int seed = time(0);
+	static bool srand_flag = false;
+	if (!srand_flag) {
+		srand(seed);
+		srand_flag = true;
+	}
 	if (v.size() == 0) {
 		throw "vector length is 0";
 	}
 	else {
-		srand(time(0));
+
 		int index = rand() % v.size();
 		return v[index];
 	}
 }
+
 vector<string> split(string s, string sep, bool reserve_last, bool reserve_last_empty ) {
 	vector<string> v_s;
 	int sep_size = sep.size();

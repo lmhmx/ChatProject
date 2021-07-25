@@ -3,11 +3,15 @@ SuperUserRegister::SuperUserRegister() {
 
 }
 bool SuperUserRegister::queryRegisterAUser(string& phone_mail, string& pwd, string registerway) {
-	return 0;
+	bool res = DatabaseManager::queryRegisterAUser(phone_mail, pwd, registerway,
+		m_DatabaseUid,m_DatabasePWD);
+
+	return res;
 }
 User SuperUserRegister::doRegisterAUser(string& phone_mail, string& pwd, string registerway) {
-	
-	return User();
+	User resUser = DatabaseManager::doReigsterAUser(phone_mail, pwd, registerway,
+		m_DatabaseUid, m_DatabasePWD);
+	return resUser;
 }
 string SuperUserRegister::getSuperUid() {
 	return this->m_DatabaseUid;

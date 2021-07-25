@@ -13,12 +13,12 @@ public:
 	
 
 public:
-	static User getUserFromUid(string& uid, string superuid, string superpwd, string superuname);
-	static Group getGroupFromGid(string& gid, string superuid, string superpwd, string superuname);
-	static string getUidFromMail(string mail, string superuid, string superpwd, string superuname);
-	static string getUidFromPhone(string phone, string speruid, string superpwd, string superuname);
-	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string superuid, string superpwd,string superuname);
-	static bool doReigsterAUser(string& phone_mail, string& pwd, string registerway, string superuid, string superpwd, string superuname);
+	static User getUserFromUid(string& uid, string superuid, string superpwd);
+	static Group getGroupFromGid(string& gid, string superuid, string superpwd);
+	static string getUidFromMail(string mail, string superuid, string superpwd);
+	static string getUidFromPhone(string phone, string speruid, string superpwd);
+	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string superuid, string superpwd);
+	static User doReigsterAUser(string& phone_mail, string& pwd, string registerway, string superuid, string superpwd);
 	
 private:
 	static string generateNewUid();
@@ -29,9 +29,9 @@ private:
 	static string _DB_getUidFromMail(string mail);
 	static string _DB_getUidFromPhone(string phone);
 	static bool _DB_queryRegisterAUser(string& phone_mail, string& pwd, string registerway);
-	static bool _DB_doReigsterAUser(string& phone_mail, string& pwd, string registerway);
+	static User _DB_doReigsterAUser(string& phone_mail, string& pwd, string registerway);
 
-	static bool _DB_checkAuthority(Authorization authorization, string superuid, string superpwd, string superunam);
+	static bool _DB_checkAuthority(Authorization authorization, string superuid, string superpwd);
 
 private:
 	

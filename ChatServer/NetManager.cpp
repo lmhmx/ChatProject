@@ -24,16 +24,17 @@ void NetManager::slotNewConnection() {
 		<< "socket port" <<socket->localPort();
 }
 void NetManager::slotReceiveMessage() {
-	char* message = new char[m_MAX_MESSAGE_LENGTH];
+	char* message = new char[m_MAX_MESSAGE_LENGTH] {'\0'};
 	QTcpSocket* socketsender = qobject_cast<QTcpSocket*> (sender());
 
 	socketsender->read(message, m_MAX_MESSAGE_LENGTH);
 	string message_str = message;
-	emit signalReceiveMessage(socketsender, message_str);
 	qDebug() << "NetManager:" << "slotdisconnected:"
 		<< "sokcet address:" << socketsender->localAddress()
 		<< "socket port:" << socketsender->localPort()
 		<< "socket message" << message;
+	emit signalReceiveMessage(socketsender, message_str);
+	
 
 }
 
