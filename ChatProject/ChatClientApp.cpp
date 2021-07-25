@@ -12,7 +12,7 @@ ChatClientApp::ChatClientApp(QWidget *parent)
         this, &ChatClientApp::slotNewMessage);
     
     ui.setupUi(this);
-    setPageLogInRegisterWindow();
+    setPageMainWindow();
     
 }
 void ChatClientApp::slotLogInByMail(string mail, string pwd) {

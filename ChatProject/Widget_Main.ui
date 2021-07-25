@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>706</width>
-    <height>549</height>
+    <width>806</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="widget_Chat" native="true">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>40</x>
      <y>20</y>
      <width>161</width>
      <height>471</height>
@@ -44,7 +44,7 @@
     <widget class="QLineEdit" name="lineEdit_search">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>10</y>
        <width>81</width>
        <height>20</height>
@@ -71,7 +71,7 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>61</width>
+     <width>31</width>
      <height>471</height>
     </rect>
    </property>
@@ -79,10 +79,10 @@
   <widget class="QWidget" name="widget_Message" native="true">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>200</x>
      <y>30</y>
-     <width>421</width>
-     <height>461</height>
+     <width>521</width>
+     <height>531</height>
     </rect>
    </property>
    <widget class="QWidget" name="widget_MessageShow" native="true">
@@ -110,8 +110,8 @@
      <rect>
       <x>-10</x>
       <y>350</y>
-      <width>401</width>
-      <height>80</height>
+      <width>501</width>
+      <height>151</height>
      </rect>
     </property>
    </widget>
