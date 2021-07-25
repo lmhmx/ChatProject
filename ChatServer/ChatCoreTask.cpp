@@ -66,7 +66,7 @@ void ChatCoreTask::replyToLogIn(Message& message, QTcpSocket* socket) {
 				logInUser = m_SuperLogIn->getUserFromUid(uid);
 				Message reply;
 				m_UserManager->updateSocketToUserSocket(socket,logInUser);
-				reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%s", time(0));
+				reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%S", time(0));
 				reply.m_MessageReceiver = logInUser.m_UserID;
 				reply.m_MessageSender = m_SuperLogIn->m_UserID;
 				reply.m_MessageType = MessageType::MessageType::LOGIN;
@@ -86,7 +86,7 @@ void ChatCoreTask::replyToLogIn(Message& message, QTcpSocket* socket) {
 	if (!succeed) {
 		// 失败了，返回失败信息
 		Message reply;
-		reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%s", time(0));
+		reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%S", time(0));
 		reply.m_MessageReceiver = "";
 		reply.m_MessageSender = m_SuperLogIn->m_UserID;
 		reply.m_MessageType = MessageType::MessageType::LOGIN;
@@ -117,7 +117,7 @@ void ChatCoreTask::replyToRegister(Message& message, QTcpSocket* socket) {
 			if (registeruser != User::UserDefault) {
 				Message reply;
 				m_UserManager->updateSocketToUserSocket(socket, registeruser);
-				reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%s",time(0));
+				reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%S",time(0));
 				reply.m_MessageReceiver = registeruser.m_UserID;
 				reply.m_MessageSender = m_SuperRegister->m_UserID;
 				reply.m_MessageType = MessageType::MessageType::REGISTER;
@@ -136,7 +136,7 @@ void ChatCoreTask::replyToRegister(Message& message, QTcpSocket* socket) {
 	if (!succeed) {
 		// 失败了，返回失败信息
 		Message reply;
-		reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%s", time(0));
+		reply.m_MessageTime = strftime("%Y-%m-%d %H:%M:%S", time(0));
 		reply.m_MessageReceiver = "";
 		reply.m_MessageSender = m_SuperRegister->m_UserID;
 		reply.m_MessageType = MessageType::MessageType::REGISTER;
