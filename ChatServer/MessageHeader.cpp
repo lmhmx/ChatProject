@@ -26,12 +26,14 @@ namespace MessageContentType {
 		map<MessageContentType, string> message2str;
 		message2str[MessageContentType::LOGIN_reply] = "LOGIN_reply";
 		message2str[MessageContentType::LOGIN_request] = "LOGIN_reply";
+		message2str[MessageContentType::REGISTER_reply] = "REGISTER_reply";
+		message2str[MessageContentType::REGISTER_request] = "REGISTER_request";
 
-		message2str[MessageContentType::MESSAGE_bigFile] = "LOGIN_reply";
-		message2str[MessageContentType::MESSAGE_bigPicture] = "LOGIN_reply";
-		message2str[MessageContentType::MESSAGE_file] = "LOGIN_reply";
-		message2str[MessageContentType::MESSAGE_picture] = "LOGIN_reply";
-		message2str[MessageContentType::MESSAGE_text] = "LOGIN_reply";
+		message2str[MessageContentType::MESSAGE_bigFile] = "MESSAGE_bigFile";
+		message2str[MessageContentType::MESSAGE_bigPicture] = "MESSAGE_bigPicture";
+		message2str[MessageContentType::MESSAGE_file] = "MESSAGE_file";
+		message2str[MessageContentType::MESSAGE_picture] = "MESSAGE_picture";
+		message2str[MessageContentType::MESSAGE_text] = "MESSAGE_text";
 
 		return message2str[m];
 	}
@@ -39,7 +41,8 @@ namespace MessageContentType {
 		map<string,MessageContentType> m;
 		m["LOGIN_reply"] = MessageContentType::LOGIN_reply;
 		m["LOGIN_request"] = MessageContentType::LOGIN_request;
-		  
+		m["REGISTER_reply"] = MessageContentType::REGISTER_reply;
+		m["REGISTER_request"] = MessageContentType::REGISTER_request;
 		m["MESSAGE_bigFile"] = MessageContentType::MESSAGE_bigFile;
 		m["MESSAGE_bigPicture"] = MessageContentType::MESSAGE_bigFile;
 		m["MESSAGE_file"] = MessageContentType::MESSAGE_file;
