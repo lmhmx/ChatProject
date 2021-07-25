@@ -35,12 +35,17 @@ vector<string> split(string s, string sep, bool reserve_last, bool reserve_last_
 	int s_size = s.size();
 	int current = 0;
 	string tmp="";
-	for (int i = 0; i < s_size-sep_size + 1; i++) {
-		if (s.substr(i, sep_size) == sep) {
-			v_s.push_back(tmp);
-			// v_s.push_back(s.substr(current, i - current));
-			i = i + sep_size - 1;
-			tmp = "";
+	for (int i = 0; i < s_size; i++) {
+		if (i + sep_size -1 < s_size) {
+			if (s.substr(i, sep_size) == sep) {
+				v_s.push_back(tmp);
+				// v_s.push_back(s.substr(current, i - current));
+				i = i + sep_size - 1;
+				tmp = "";
+			}
+			else {
+				tmp.push_back(s[i]);
+			}
 		}
 		else {
 			tmp.push_back(s[i]);
@@ -97,7 +102,7 @@ string deleteEscapeCharacter(string s, char c) {
 	}
 }
 string strftime(string format, time_t t, int buffer_size) {
-	char* buffer = new char[buffer_size];
+	char* buffer = new char[buffer_size] {'\0'};
 	
 	strftime(buffer, buffer_size, format.c_str(), localtime(&t));
 	string result = buffer;

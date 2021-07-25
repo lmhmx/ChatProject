@@ -77,8 +77,8 @@ string MessageContent::map2Str(map<string, string> m) {
 map<string, string> MessageContent::str2Map(string s) {
 	map<string, string> res;
 	string sep0 = "";
-	sep0.push_back(m_MapSeperator[1]);
-	sep0.push_back(m_MapSeperator[1]);
+	sep0.push_back(m_MapSeperator[0]);
+	sep0.push_back(m_MapSeperator[0]);
 	string sep1 = "";
 	sep1.push_back(m_MapSeperator[1]);
 	sep1.push_back(m_MapSeperator[1]);
