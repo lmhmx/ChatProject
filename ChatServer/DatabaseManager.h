@@ -3,6 +3,7 @@
 # include "Group.h"
 # include <vector>
 # include <regex>
+//# include <sql.h>
 # include <exception>
 # include "Authorization.h"
 # include "Common.h"
@@ -37,8 +38,18 @@ private:
 	
 	static void checkCharacters();
 	
+private:
+	static void __DB_addToUsers(User* user);
+	static void __DB_removeFromUsers(User* user);
+	static const vector<User*> __DB_getUsers();
 
 private:
+	static void __loadFromDatabase();
+	static void __saveToDatabase();
+
+private:
+	static bool m_Init;
+
 	static vector<User*> m_Users;
 	static vector<Group*> m_Groups;
 	static vector<char> m_FirstCharacterOfID;

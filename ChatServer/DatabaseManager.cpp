@@ -3,7 +3,7 @@ vector<User*> DatabaseManager::m_Users=vector<User*>();
 vector<Group*> DatabaseManager::m_Groups=vector<Group*>();
 vector<char> DatabaseManager::m_FirstCharacterOfID=vector<char>();
 vector<char> DatabaseManager::m_OtherCharactersOfID=vector<char>();
-
+bool DatabaseManager::m_Init = false;
 
 
 
@@ -72,7 +72,8 @@ string DatabaseManager::generateNewUid() {
 	return uid;
 }
 User* DatabaseManager::_DB_getUserFromUid(string& uid) {
-	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
+	vector<User*> users = __DB_getUsers();
+	for (auto i = users.begin(); i != users.end(); i++) {
 		if ((*i)->m_UserID == uid) {
 			return (*i);
 		}
@@ -83,7 +84,8 @@ Group* DatabaseManager::_DB_getGroupFromGid(string& gid) {
 	return 0;
 }
 string DatabaseManager::_DB_getUidFromMail(string mail) {
-	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
+	vector<User*> users = __DB_getUsers();
+	for (auto i = users.begin(); i != users.end(); i++) {
 		if ((*i)->m_UserMail == mail) {
 			return (*i)->m_UserID;
 		}
@@ -91,7 +93,8 @@ string DatabaseManager::_DB_getUidFromMail(string mail) {
 	return "";
 }
 string DatabaseManager::_DB_getUidFromPhone(string phone) {
-	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
+	vector<User*> users = __DB_getUsers();
+	for (auto i = users.begin(); i != users.end(); i++) {
 		if ((*i)->m_UserPhone == phone) {
 			return (*i)->m_UserID;
 		}
@@ -171,4 +174,35 @@ void DatabaseManager::checkCharacters() {
 bool  DatabaseManager::_DB_checkAuthority(Authorization authorization,
 	string superuid, string superpwd) {
 	return true;
+}
+
+void DatabaseManager::__DB_addToUsers(User* user) {
+	__loadFromDatabase();
+	if (m_Init) {
+
+	}
+	m_Users.push_back(user);
+	__saveToDatabase();
+}
+void DatabaseManager::__DB_removeFromUsers(User* user) {
+	__loadFromDatabase();
+	m_Users.erase(find(m_Users.begin(), m_Users.end(), user));
+	__saveToDatabase();
+}
+const vector<User*> DatabaseManager::__DB_getUsers() {
+	__loadFromDatabase();
+	return m_Users;
+}
+void DatabaseManager::__loadFromDatabase() {
+	// todo: load
+	if (m_Init == false) {
+		// load
+	}
+	else {
+		// 
+	}
+}
+void DatabaseManager::__saveToDatabase() {
+	// todo: save
+	
 }

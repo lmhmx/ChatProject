@@ -32,6 +32,10 @@ private:
 	void addUserCertifacate(string uid, string certifacate);
 	void removeCertifacate(string uid, string certifacate);
 
+public:
+	map<string, string> m_Info;
+
+
 private:
 	SuperUserLogIn* m_SuperLogIn;
 	SuperUserRegister* m_SuperRegister;
