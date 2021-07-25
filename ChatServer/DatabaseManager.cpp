@@ -9,8 +9,8 @@ vector<char> DatabaseManager::m_OtherCharactersOfID=vector<char>();
 
 User DatabaseManager::getUserFromUid(string& uid, 
 	string superuid, string superpwd, string superuname) {
-	if (_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
-		User* user = _getUserFromUid(uid);
+	if (_DB_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
+		User* user = _DB_getUserFromUid(uid);
 		if (user == nullptr) {
 			return User::UserDefault;
 		}
@@ -26,31 +26,31 @@ Group DatabaseManager::getGroupFromGid(string& gid,
 }
 string DatabaseManager::getUidFromMail(string mail, 
 	string superuid, string superpwd, string superuname) {
-	if (_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
-		return _getUidFromMail(mail);
+	if (_DB_checkAuthority(Authorization(),superuid, superpwd, superuname)) {
+		return _DB_getUidFromMail(mail);
 	}
 	return "";
 }
 string DatabaseManager::getUidFromPhone(string phone, 
 	string superuid, string superpwd, string superuname) {
-	if (_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
-		return _getUidFromPhone(phone);
+	if (_DB_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
+		return _DB_getUidFromPhone(phone);
 	}
 	return "";
 }
 
 bool DatabaseManager::queryRegisterAUser(string& phone_mail, string& pwd, string registerway, 
 	string superuid, string superpwd, string superuname) {
-	if (_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
-		return _queryRegisterAUser(phone_mail, pwd, registerway);
+	if (_DB_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
+		return _DB_queryRegisterAUser(phone_mail, pwd, registerway);
 	}
 	return false;
 	
 }
 bool DatabaseManager::doReigsterAUser(string& phone_mail, string& pwd, string registerway,
 	string superuid, string superpwd, string superuname) {
-	if (_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
-		return _doReigsterAUser(phone_mail, pwd, registerway);
+	if (_DB_checkAuthority(Authorization(), superuid, superpwd, superuname)) {
+		return _DB_doReigsterAUser(phone_mail, pwd, registerway);
 	}
 	return false;
 }
@@ -63,13 +63,13 @@ string DatabaseManager::generateNewUid() {
 		for (int i = 0; i < 15; i++) {
 			uid.push_back(getRandomFromVector(m_OtherCharactersOfID));
 		}
-		if (_getUserFromUid(uid)==nullptr) {
+		if (_DB_getUserFromUid(uid)==nullptr) {
 			break;
 		}
 	}
 	return uid;
 }
-User* DatabaseManager::_getUserFromUid(string& uid) {
+User* DatabaseManager::_DB_getUserFromUid(string& uid) {
 	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
 		if ((*i)->m_UserID == uid) {
 			return (*i);
@@ -77,10 +77,10 @@ User* DatabaseManager::_getUserFromUid(string& uid) {
 	}
 	return nullptr;
 }
-Group* DatabaseManager::_getGroupFromGid(string& gid) {
+Group* DatabaseManager::_DB_getGroupFromGid(string& gid) {
 	return 0;
 }
-string DatabaseManager::_getUidFromMail(string mail) {
+string DatabaseManager::_DB_getUidFromMail(string mail) {
 	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
 		if ((*i)->m_UserMail == mail) {
 			return (*i)->m_UserID;
@@ -88,7 +88,7 @@ string DatabaseManager::_getUidFromMail(string mail) {
 	}
 	return "";
 }
-string DatabaseManager::_getUidFromPhone(string phone) {
+string DatabaseManager::_DB_getUidFromPhone(string phone) {
 	for (auto i = m_Users.begin(); i != m_Users.end(); i++) {
 		if ((*i)->m_UserPhone == phone) {
 			return (*i)->m_UserID;
@@ -96,7 +96,7 @@ string DatabaseManager::_getUidFromPhone(string phone) {
 	}
 	return "";
 }
-bool DatabaseManager::_queryRegisterAUser(string& phone_mail, string& pwd, string registerway) {
+bool DatabaseManager::_DB_queryRegisterAUser(string& phone_mail, string& pwd, string registerway) {
 	if (registerway == "PHONE") {
 		string phone = phone_mail;
 
@@ -119,8 +119,8 @@ bool DatabaseManager::_queryRegisterAUser(string& phone_mail, string& pwd, strin
 	}
 	return false;
 }
-bool DatabaseManager::_doReigsterAUser(string& phone_mail, string& pwd, string registerway) {
-	if (_queryRegisterAUser(phone_mail, pwd, registerway)) {
+bool DatabaseManager::_DB_doReigsterAUser(string& phone_mail, string& pwd, string registerway) {
+	if (_DB_queryRegisterAUser(phone_mail, pwd, registerway)) {
 		User* user = new User();
 		if (registerway == "MAIL") {
 			user->m_UserMail = phone_mail;
@@ -139,7 +139,7 @@ string DatabaseManager::generateNewGid() {
 		for (int i = 0; i < 15; i++) {
 			gid.push_back(getRandomFromVector(m_OtherCharactersOfID));
 		}
-		if (_getUserFromUid(gid) == nullptr) {
+		if (_DB_getUserFromUid(gid) == nullptr) {
 			break;
 		}
 	}
@@ -166,7 +166,7 @@ void DatabaseManager::checkCharacters() {
 		}
 	}
 }
-bool  DatabaseManager::_checkAuthority(Authorization authorization,
+bool  DatabaseManager::_DB_checkAuthority(Authorization authorization,
 	string superuid, string superpwd, string superunam) {
 	return true;
 }
