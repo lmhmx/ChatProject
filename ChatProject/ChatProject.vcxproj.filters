@@ -126,6 +126,18 @@
     <QtUic Include="Widget_Main.ui">
       <Filter>Form Files\UiMain</Filter>
     </QtUic>
+    <QtUic Include="Widget_MessageShow.ui">
+      <Filter>Form Files\UiMain</Filter>
+    </QtUic>
+    <QtUic Include="Widget_MessageSend.ui">
+      <Filter>Form Files\UiMain</Filter>
+    </QtUic>
+    <QtUic Include="Widget_ChatList.ui">
+      <Filter>Form Files\UiMain</Filter>
+    </QtUic>
+    <QtUic Include="Widget_ChatItem.ui">
+      <Filter>Form Files\UiMain</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NetManagerClient.h">

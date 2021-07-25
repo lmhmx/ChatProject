@@ -111,9 +111,13 @@
     <QtMoc Include="ChatClientApp.h" />
     <ClCompile Include="ChatClientApp.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="Widget_ChatItem.ui" />
+    <QtUic Include="Widget_ChatList.ui" />
     <QtUic Include="Widget_LogIn_Mail.ui" />
     <QtUic Include="Widget_LogIn_Phone.ui" />
     <QtUic Include="Widget_Main.ui" />
+    <QtUic Include="Widget_MessageSend.ui" />
+    <QtUic Include="Widget_MessageShow.ui" />
     <QtUic Include="Widget_Register_Mail.ui" />
     <QtUic Include="Widget_Register_Phone.ui" />
   </ItemGroup>

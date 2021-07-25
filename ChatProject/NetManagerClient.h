@@ -23,10 +23,10 @@ public:
 	// Slots
 	void slotReceiveMessage();
 	void slotTryToConnectToServer();
-	void slotSendMessage(const string& m);
+	void slotSendMessage(const string m);
 
 signals:
-	void signalReceiveMessage(string& s);
+	void signalReceiveMessage(string s);
 signals:
 	void signalDisconnected(QTcpSocket* socket);
 

@@ -28,7 +28,7 @@ void NetManagerClient::slotReceiveMessage() {
 	qDebug() <<"NetManagerClient::slotReceiveMessage: "<< message;
 	emit signalReceiveMessage(message_str);
 }
-void NetManagerClient::slotSendMessage(const string& m) {
+void NetManagerClient::slotSendMessage(const string m) {
 	
 	if (m_Socket->state() == QAbstractSocket::SocketState::ConnectedState) {
 		QByteArray t = QByteArray::fromStdString(m);
