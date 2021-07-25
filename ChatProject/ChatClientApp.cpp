@@ -10,6 +10,7 @@ ChatClientApp::ChatClientApp(QWidget *parent)
         this, &ChatClientApp::slotLogInSucceed);
     connect(m_ChatClientCore, &ChatClientCore::signal_NewMessage,
         this, &ChatClientApp::slotNewMessage);
+    
     ui.setupUi(this);
     setPageLogInRegisterWindow();
     
