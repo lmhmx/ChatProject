@@ -2,12 +2,13 @@
 ChatClientApp::ChatClientApp(QWidget *parent)
     : QMainWindow(parent)
 {
-    m_NetManagerClient = new NetManagerClient();
-    connect(this, &ChatClientApp::signal_RegisterSucceed,
+    m_ChatClientCore = new ChatClientCore();
+    
+    connect(m_ChatClientCore, &ChatClientCore::signal_LogInSucceed,
         this, &ChatClientApp::slotRegisterSucceed);
-    connect(this, &ChatClientApp::signal_LogInSucceed,
+    connect(m_ChatClientCore, &ChatClientCore::signal_LogInSucceed,
         this, &ChatClientApp::slotLogInSucceed);
-    connect(m_NetManagerClient, &NetManagerClient::signalReceiveMessage,
+    connect(m_ChatClientCore, &ChatClientCore::signal_NewMessage,
         this, &ChatClientApp::slotNewMessage);
     ui.setupUi(this);
     setPageLogInRegisterWindow();
@@ -26,61 +27,32 @@ void ChatClientApp::slotLogInByMail(string mail, string pwd) {
     sendMessage(m);
 
 }
-void ChatClientApp::slotLogInSucceed(string uid, string certificate) {
-    m_User.m_UserID = uid;
-    m_OnlineCertificate = certificate;
-    setPageMainWindow();
-}
-void ChatClientApp::slotRegisterSucceed(string uid, string certificate) {
-    m_User.m_UserID = uid;
-    m_OnlineCertificate = certificate;
-    setPageMainWindow();
-}
-void ChatClientApp::replyToLogInMessage(Message m) {
-    if (m.m_MessageContent.m_MessageContentType ==
-        MessageContentType::MessageContentType::LOGIN_reply) {
-        if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
-            QMessageBox::information(0, "info", "login succeed");
-            string uid = m.m_MessageContent.m_Content["LOG_IN_USER_ID"];
-            string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
-            emit signal_LogInSucceed(uid, certificate);
-        }
-        else {
-            QMessageBox::information(0, "info", "login failed");
-        }
+void ChatClientApp::slotLogInSucceed(bool succeed) {
+    if (succeed) {
+        setPageMainWindow();
     }
-}
-void ChatClientApp::replyToRegisterMessage(Message m) {
-    if (m.m_MessageContent.m_MessageContentType ==
-        MessageContentType::MessageContentType::REGISTER_reply) {
-        if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {
-            QMessageBox::information(0, "info", "register succeed");
-            string uid = m.m_MessageContent.m_Content["REGISTER_UID"];
-            string certificate = m.m_MessageContent.m_Content["CERTIFICATE"];
-            qDebug() << "register succeed";
-            emit signal_RegisterSucceed(uid, certificate);
-        }
-        else {
-            QMessageBox::information(0, "info", "register failed");
-        }
-
-
-    }
-}
-void ChatClientApp::slotNewMessage(string message) {
-    Message m = Message::to_Message(message);
-    switch (m.m_MessageType) {
-    case MessageType::MessageType::REGISTER:
-        replyToRegisterMessage(m);
-        break;
-    case MessageType::MessageType::LOGIN:
-        replyToLogInMessage(m);
-        break;
-    default:
-        qDebug() << MessageType::to_String(m.m_MessageType).c_str();
-        break;
+    else {
+        QMessageBox::warning(0, "error", "log in failed");
     }
     
+}
+void ChatClientApp::slotRegisterSucceed(bool succeed) {
+    if (succeed) {
+        setPageMainWindow();
+    }
+    else {
+        QMessageBox::warning(0, "error", "register failed");
+    }
+
+}
+
+void ChatClientApp::slotNewMessage(Message message) {
+    if (message.m_MessageType == MessageType::MessageType::MESSAGE) {
+        // TODO: »Ø¸´ÐÅÏ¢
+    }
+    else {
+        QMessageBox::critical(0, "error", "App error, please contact the managers");
+    }
 }
 
 void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
@@ -98,13 +70,8 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     sendMessage(m);
     qDebug() << "ChatClientApp slot Register By Mail end";
 }
-void ChatClientApp::sendMessage(Message& m) {
-    qDebug() << "ChatClientApp send Message begin";
-    string s = m.to_String();
-    qDebug() << "change end";
-    m_NetManagerClient->slotSendMessage(s);
-
-    qDebug() << QString::fromStdString(s);
+void ChatClientApp::sendMessage(Message m) {
+    m_ChatClientCore->sendMessage(m);
 
 }
 void ChatClientApp::setPageLogInRegisterWindow() {

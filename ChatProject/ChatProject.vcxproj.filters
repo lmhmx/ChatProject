@@ -109,6 +109,9 @@
     <ClCompile Include="MainUiController.cpp">
       <Filter>Source Files\Widget_Main</Filter>
     </ClCompile>
+    <ClCompile Include="ChatClientCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Widget_LogIn_Mail.ui">
@@ -148,6 +151,9 @@
     </QtMoc>
     <QtMoc Include="MainUiController.h">
       <Filter>Header Files\Widget_Main</Filter>
+    </QtMoc>
+    <QtMoc Include="ChatClientCore.h">
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

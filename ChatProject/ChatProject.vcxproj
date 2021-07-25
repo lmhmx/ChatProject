@@ -103,6 +103,7 @@
     <ClCompile Include="..\ChatServer\User.cpp" />
     <ClCompile Include="..\ChatServer\UserCore.cpp" />
     <ClCompile Include="..\ChatServer\UserHeader.cpp" />
+    <ClCompile Include="ChatClientCore.cpp" />
     <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
     <ClCompile Include="MainUiController.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
+    <QtMoc Include="ChatClientCore.h" />
     <ClInclude Include="Share.h" />
     <QtMoc Include="MainUiController.h" />
   </ItemGroup>

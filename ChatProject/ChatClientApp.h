@@ -6,6 +6,7 @@
 # include "NetManagerClient.h"
 # include "Share.h"
 # include "MainUiController.h"
+# include "ChatClientCore.h"
 class ChatClientApp : public QMainWindow
 {
     Q_OBJECT
@@ -13,37 +14,34 @@ class ChatClientApp : public QMainWindow
 public:
     ChatClientApp(QWidget *parent = Q_NULLPTR);
 
-    void sendMessage(Message& m);
-
+    
 public:
-    // 界面相关的程序
+    // 切换界面相关的程序
     void setPageLogInRegisterWindow();
 
     void setPageMainWindow();
 
 
 
-    // 信号相关的操作
-signals:
-    void signal_LogInSucceed(string uid,string certificate);
-    void signal_RegisterSucceed(string uid, string certificate);
-    
 
 protected:
-    void slotLogInSucceed(string uid, string certificate);
-    void slotRegisterSucceed(string uid, string certificate);
+    // 接收下级的成功信号
+    void slotLogInSucceed(bool succeed);
+    void slotRegisterSucceed(bool succeed);
 
 protected:
     // 接收LogInRegisterUiController的信号
     void slotLogInByMail(string mail, string pwd);
     void slotRegisterByMail(string mail, string pwd);
-    
 protected:
-    // 接收到一条信息
-    void slotNewMessage(string message);
+    // 接收主界面的信号
 
-    void replyToLogInMessage(Message m);
-    void replyToRegisterMessage(Message m);
+
+protected:
+    // 从下级接收的总接口
+    void slotNewMessage(Message message);
+    // 向下级发送的总接口
+    void sendMessage(Message message);
 
 protected:
     // 
@@ -53,13 +51,9 @@ private:
     LogInRegisterUiController* m_LogInRegisterUiController;
     MainUiController* m_MainUiController;
 
-private:
-    NetManagerClient* m_NetManagerClient;
 
 private:
-    
+    ChatClientCore* m_ChatClientCore;
     Ui::ChatClientAppClass ui;
-private:
-    User m_User;
-    string m_OnlineCertificate;
+
 };
