@@ -35,7 +35,7 @@ protected:
     void slotRegisterByMail(string mail, string pwd);
 protected:
     // 接收主界面的信号
-
+    void slotSendMessageFromMainUi(Message message);
 
 protected:
     // 从下级接收的总接口
@@ -53,6 +53,7 @@ private:
 
 
 private:
+
     ChatClientCore* m_ChatClientCore;
     Ui::ChatClientAppClass ui;
 

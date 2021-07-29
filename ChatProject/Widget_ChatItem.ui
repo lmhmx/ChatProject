@@ -109,6 +109,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="label_NewNum">
+       <property name="text">
+        <string>newum</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label_Time">
        <property name="text">
         <string>time</string>

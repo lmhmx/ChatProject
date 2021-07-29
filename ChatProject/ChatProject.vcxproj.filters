@@ -112,6 +112,9 @@
     <ClCompile Include="ChatClientCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Widget_ChatItem_Controller.cpp">
+      <Filter>Source Files\Widget_Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Widget_LogIn_Mail.ui">
@@ -154,6 +157,9 @@
     </QtMoc>
     <QtMoc Include="ChatClientCore.h">
       <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget_ChatItem_Controller.h">
+      <Filter>Header Files\Widget_Main</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ ChatClientApp::ChatClientApp(QWidget *parent)
         this, &ChatClientApp::slotNewMessage);
     
     ui.setupUi(this);
-    setPageMainWindow();
+    setPageLogInRegisterWindow();
     
 }
 void ChatClientApp::slotLogInByMail(string mail, string pwd) {
@@ -46,10 +46,21 @@ void ChatClientApp::slotRegisterSucceed(bool succeed) {
     }
 
 }
-
+void ChatClientApp::slotSendMessageFromMainUi(Message message) {
+    sendMessage(message);
+}
 void ChatClientApp::slotNewMessage(Message message) {
     if (message.m_MessageType == MessageType::MessageType::MESSAGE) {
         // TODO: »Ø¸´ÐÅÏ¢
+        m_MainUiController->newMessage(message);
+        //string uid = message.m_MessageSender;
+        //if (m_Messages.find(uid) == m_Messages.end()) {
+        //    m_Messages[uid] = vector<Message>();
+        //    m_Messages[uid].push_back(message);
+        //}
+        //
+        //m_MainUiController->setItem(uid, 1, QPixmap(), "name", "message", "time", true);
+        
     }
     else {
         QMessageBox::critical(0, "error", "App error, please contact the managers");
@@ -90,5 +101,6 @@ void ChatClientApp::setPageLogInRegisterWindow() {
 void ChatClientApp::setPageMainWindow() {
     m_MainUiController = new MainUiController();
     this->setCentralWidget(m_MainUiController);
-
+    connect(m_MainUiController, &MainUiController::signal_SendMessage,
+        this, &ChatClientApp::slotSendMessageFromMainUi);
 }

@@ -13,6 +13,16 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QTextEdit" name="textEdit_Show">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>20</y>
+     <width>241</width>
+     <height>231</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

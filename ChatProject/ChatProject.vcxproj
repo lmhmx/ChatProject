@@ -62,12 +62,20 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\MyProgram\Boost\boost_1_76_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\MyProgram\Boost\boost_1_76_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\MyProgram\Boost\boost_1_76_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\MyProgram\Boost\boost_1_76_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -107,6 +115,7 @@
     <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
     <ClCompile Include="MainUiController.cpp" />
+    <ClCompile Include="Widget_ChatItem_Controller.cpp" />
     <QtRcc Include="ChatProject.qrc" />
     <QtUic Include="ChatApp.ui" />
     <QtMoc Include="ChatClientApp.h" />
@@ -135,6 +144,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
+    <QtMoc Include="Widget_ChatItem_Controller.h" />
     <QtMoc Include="ChatClientCore.h" />
     <ClInclude Include="Share.h" />
     <QtMoc Include="MainUiController.h" />
