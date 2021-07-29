@@ -197,11 +197,21 @@ void DatabaseManager::__loadFromDatabase() {
 	// todo: load
 	if (m_Init == false) {
 		// load
+
 	}
 	else {
 		// 
 	}
 }
+
+void DatabaseManager::__loadUserFromDatabase() {
+
+}
+void DatabaseManager::__saveUserToDatabase() {
+
+}
+
+
 void DatabaseManager::__saveToDatabase() {
 	// todo: save
 	

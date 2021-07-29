@@ -44,8 +44,13 @@ private:
 	static const vector<User*> __DB_getUsers();
 
 private:
+
+private:
 	static void __loadFromDatabase();
 	static void __saveToDatabase();
+
+	static void __loadUserFromDatabase();
+	static void __saveUserToDatabase();
 
 private:
 	static bool m_Init;
@@ -54,4 +59,5 @@ private:
 	static vector<Group*> m_Groups;
 	static vector<char> m_FirstCharacterOfID;
 	static vector<char> m_OtherCharactersOfID;
+	
 };
