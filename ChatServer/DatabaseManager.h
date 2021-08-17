@@ -5,8 +5,11 @@
 # include <regex>
 //# include <sql.h>
 # include <exception>
+# include <qsqldatabase.h>
+# include <qsql.h>
 # include "Authorization.h"
 # include "Common.h"
+
 using namespace std;
 class DatabaseManager {
 public:
@@ -52,12 +55,13 @@ private:
 	static void __loadUserFromDatabase();
 	static void __saveUserToDatabase();
 
-private:
-	static bool m_Init;
+	static void __init();
 
+private:
+	static QSqlDatabase* m_database;
 	static vector<User*> m_Users;
 	static vector<Group*> m_Groups;
 	static vector<char> m_FirstCharacterOfID;
 	static vector<char> m_OtherCharactersOfID;
-	
+
 };

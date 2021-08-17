@@ -3,7 +3,7 @@ vector<User*> DatabaseManager::m_Users=vector<User*>();
 vector<Group*> DatabaseManager::m_Groups=vector<Group*>();
 vector<char> DatabaseManager::m_FirstCharacterOfID=vector<char>();
 vector<char> DatabaseManager::m_OtherCharactersOfID=vector<char>();
-bool DatabaseManager::m_Init = false;
+QSqlDatabase* DatabaseManager::m_database = nullptr;
 
 
 
@@ -178,9 +178,8 @@ bool  DatabaseManager::_DB_checkAuthority(Authorization authorization,
 
 void DatabaseManager::__DB_addToUsers(User* user) {
 	__loadFromDatabase();
-	if (m_Init) {
+	
 
-	}
 	m_Users.push_back(user);
 	__saveToDatabase();
 }
@@ -193,26 +192,37 @@ const vector<User*> DatabaseManager::__DB_getUsers() {
 	__loadFromDatabase();
 	return m_Users;
 }
-void DatabaseManager::__loadFromDatabase() {
-	// todo: load
-	if (m_Init == false) {
-		// load
 
+void DatabaseManager::__loadFromDatabase() {
+	__init();
+
+}
+void DatabaseManager::__init() {
+	// todo: load
+	if (m_database == nullptr) {
+		m_database = new QSqlDatabase();
+		m_database->setHostName("127.0.0.1");
+		m_database->setDatabaseName("chat");
+		m_database->setPort(3306);
+		m_database->setPassword("liming18");
+		m_database->setUserName("ChatappManager");
+		
 	}
 	else {
-		// 
+		// do nothing
+
 	}
 }
-
 void DatabaseManager::__loadUserFromDatabase() {
+	__init();
 
 }
 void DatabaseManager::__saveUserToDatabase() {
-
+	__init();
 }
 
 
 void DatabaseManager::__saveToDatabase() {
-	// todo: save
+	__init();
 	
 }

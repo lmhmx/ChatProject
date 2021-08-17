@@ -4,6 +4,7 @@
 #include <iostream>
 # include <qdebug.h>
 # include <map>
+# include <QtSql/qsql.h>
 using namespace std;
 class Mystring//:public string
 {
