@@ -54,7 +54,6 @@ bool MainUiController::updateItem(string id, int newMessageNum,
 		qobject_cast<Widget_ChatItem_Controller*>(ui_ChatList.listWidget_ChatList->itemWidget(item));
 	item_widget->setContent(newMessageNum, pic, name, message, time, mute);
 	return 1;
-	// ui_ChatList.listWidget_ChatList->setItemWidget(item, item_widget);
 }
 bool MainUiController::removeItem(string id) {
 	QListWidgetItem* item = m_ID2Item.left.at(id);
@@ -88,5 +87,5 @@ void MainUiController::slot_FileClick() {
 
 }
 void MainUiController::slot_AddClick() {
-
+	QMessageBox::information(0, "add click", "not yet");
 }

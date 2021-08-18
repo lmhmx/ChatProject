@@ -6,6 +6,7 @@
 # include "ui_Widget_MessageSend.h"
 # include <string>
 # include <qlistwidget.h>
+# include <qmessagebox.h>
 # include <qpixmap.h>
 # include <map>
 # include <boost/bimap.hpp>
