@@ -195,7 +195,7 @@ const vector<User*> DatabaseManager::__DB_getUsers() {
 
 void DatabaseManager::__loadFromDatabase() {
 	__init();
-
+	__loadUserFromDatabase();
 }
 void DatabaseManager::__init() {
 	// todo: load
@@ -215,10 +215,35 @@ void DatabaseManager::__init() {
 }
 void DatabaseManager::__loadUserFromDatabase() {
 	__init();
-
+	// QStringList tables = m_database->tables();
+	// TODO: add user part to database
+	m_Users.clear();
+	vector<vector<string>> user_info = load_CSV("User.database.table");
+	for (auto user = user_info.begin(); user != user_info.end(); user++) {
+		User* aUser = new User();
+		aUser->m_UserID = (*user)[0];
+		aUser->m_UserMail = (*user)[1];
+		aUser->m_UserPhone = (*user)[2];
+		aUser->m_UserType = UserType::FromString((*user)[3]);
+		aUser->m_UserPasswd = (*user)[4];
+		m_Users.push_back(aUser);
+	}
 }
+
 void DatabaseManager::__saveUserToDatabase() {
 	__init();
+	vector<vector<string>> v;
+	for (auto user = m_Users.begin(); user != m_Users.end(); user++) {
+		vector<string> user_info;
+		user_info.push_back((*user)->m_UserID);
+		user_info.push_back((*user)->m_UserMail);
+		user_info.push_back((*user)->m_UserPhone);
+		user_info.push_back((*user)->m_UserPasswd);
+		user_info.push_back(UserType::to_String((*user)->m_UserType));
+
+		v.push_back(user_info);
+	}
+	save_To_CSV("User.database.table", v);
 }
 
 

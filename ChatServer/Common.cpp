@@ -116,3 +116,34 @@ string strftime(string format, time_t t, int buffer_size) {
 	delete[] buffer;
 	return result;
 }
+vector<vector<string>> load_CSV(string file,string separator) {
+	vector<vector<string>> v;
+	vector<string> rows;
+	ifstream ifile;
+	ifile.open(file);
+	string s;
+	ifile >> s;
+	rows = split(s, separator, true, false);
+	for (auto row = rows.begin(); row != rows.end(); row++) {
+		v.push_back(split(*row,separator,true,false));
+	}
+	return v;
+}
+void save_To_CSV(string file, const vector<vector<string>>& v, string separator) {
+	string s;
+	for (auto r = v.begin(); r != v.end(); r++) {
+		for (auto c = r->begin(); c != r->end(); c++) {
+			s.append(*c);
+			if (c != r->end() - 1) {
+				s.append(separator);
+			}
+			else {
+				s.append("\n");
+			}
+		}
+	}
+	ofstream ofile;
+	ofile.open(file);
+	ofile << s;
+	ofile.close();
+}

@@ -6,6 +6,7 @@
 //# include <sql.h>
 # include <exception>
 # include <qsqldatabase.h>
+# include <qstringlist.h>
 # include <qsql.h>
 # include "Authorization.h"
 # include "Common.h"
@@ -63,5 +64,5 @@ private:
 	static vector<Group*> m_Groups;
 	static vector<char> m_FirstCharacterOfID;
 	static vector<char> m_OtherCharactersOfID;
-
+	
 };
