@@ -5,7 +5,8 @@ SuperUserMessage::SuperUserMessage() {
 }
 
 User SuperUserMessage::getUserFromUid(string uid) {
-	return User();
+	User u = DatabaseManager::getUserFromUid(uid, m_DatabaseUid, m_DatabasePWD);
+	return u;
 }
 
 string SuperUserMessage::getSuperUid() {
@@ -24,8 +25,14 @@ void SuperUserMessage::setSuperPwd(string pwd) {
 	this->m_DatabasePWD = pwd;
 
 }
+vector<User> SuperUserMessage::translateReceiverID(string receiver) {
+	vector<User> users;
 
+	users.push_back(getUserFromUid(receiver));
+	return users;
+}
 void SuperUserMessage::setSuperUname(string uname)
 {
 	this->m_DatabaseUname = uname;
 }
+

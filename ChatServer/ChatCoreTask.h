@@ -5,6 +5,8 @@
 # include <qdebug.h>
 # include "SuperUserLogIn.h"
 # include "SuperUserRegister.h"
+# include "SuperUserMessage.h"
+
 class ChatCoreTask:public QObject {
 	Q_OBJECT
 public:
@@ -39,7 +41,7 @@ public:
 private:
 	SuperUserLogIn* m_SuperLogIn;
 	SuperUserRegister* m_SuperRegister;
-
+	SuperUserMessage* m_SuperMessage;
 
 private:
 	UserManager* m_UserManager;

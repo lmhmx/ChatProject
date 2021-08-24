@@ -3,10 +3,29 @@ SuperUserLogIn::SuperUserLogIn() {
 
 }
 bool SuperUserLogIn::queryLoginAUser(string& phone_mail, string& pwd, string loginway) {
-	return 1;
+	string id;
+	if (loginway == "MAIL") {
+		id=  DatabaseManager::getUidFromMail(phone_mail, m_DatabaseUid, m_DatabasePWD);
+	}
+	else if (loginway == "PHONE") {
+		id = DatabaseManager::getUidFromPhone(phone_mail, m_DatabaseUid, m_DatabasePWD);
+	}
+	User u = DatabaseManager::getUserFromUid(id , m_DatabaseUid,m_DatabasePWD);
+
+	if (u == User::UserDefault) {
+		return false;
+	}
+	else {
+		if (u.m_UserPasswd == pwd) {
+			return true;
+		}
+		return false;
+	}
 }
 User SuperUserLogIn::getUserFromUid(string uid) {
-	return User();
+	User u = DatabaseManager::getUserFromUid(uid, m_DatabaseUid, m_DatabasePWD);
+	return u;
+	
 }
 string SuperUserLogIn::getUidFromMail(string mail) {
 	return "";
@@ -15,8 +34,24 @@ string SuperUserLogIn::getUidFromPhone(string phone) {
 	return "";
 }
 bool SuperUserLogIn::doLoginAUser(string& phone_mail, string& pwd, string loginway) {
-	
-	return 1;
+	string id;
+	if (loginway == "MAIL") {
+		id = DatabaseManager::getUidFromMail(phone_mail, m_DatabaseUid, m_DatabasePWD);
+	}
+	else if (loginway == "PHONE") {
+		id = DatabaseManager::getUidFromPhone(phone_mail, m_DatabaseUid, m_DatabasePWD);
+	}
+	User u = DatabaseManager::getUserFromUid(id, m_DatabaseUid, m_DatabasePWD);
+
+	if (u == User::UserDefault) {
+		return false;
+	}
+	else {
+		if (u.m_UserPasswd == pwd) {
+			return true;
+		}
+		return false;
+	}
 }
 string SuperUserLogIn::getSuperUid() {
 	return this->m_DatabaseUid;

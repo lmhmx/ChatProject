@@ -11,12 +11,14 @@ bool SuperUserRegister::queryRegisterAUser(string& phone_mail, string& pwd, stri
 User SuperUserRegister::doRegisterAUser(string& phone_mail, string& pwd, string registerway) {
 	User resUser = DatabaseManager::doReigsterAUser(phone_mail, pwd, registerway,
 		m_DatabaseUid, m_DatabasePWD);
+
 	return resUser;
 }
 
 string SuperUserRegister::getSuperUid() {
 	return this->m_DatabaseUid;
 }
+
 string SuperUserRegister::getSuperPasswd() {
 	return this->m_DatabasePWD;
 }

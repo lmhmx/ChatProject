@@ -25,6 +25,7 @@ public:
 	static bool queryRegisterAUser(string& phone_mail, string&pwd, string registerway,string superuid, string superpwd);
 	static User doReigsterAUser(string& phone_mail, string& pwd, string registerway, string superuid, string superpwd);
 	
+
 private:
 	static string generateNewUid();
 	static string generateNewGid();

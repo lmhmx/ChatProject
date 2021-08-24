@@ -8,6 +8,7 @@ void ChatCoreTask::init() {
 	m_UserManager = new UserManager();
 	m_SuperLogIn = new SuperUserLogIn();
 	m_SuperRegister = new SuperUserRegister();
+	m_SuperMessage = new SuperUserMessage();
 
 	connect(m_UserManager, &UserManager::signalNewMessageFromUser, this, &ChatCoreTask::slotNewMessageFromUser);
 
@@ -178,8 +179,12 @@ void ChatCoreTask::removeCertifacate(string uid, string certifacate) {
 }
 void ChatCoreTask::replyToMessage(Message& message, QTcpSocket* socket) {
 	if (message.m_MessageType == MessageType::MessageType::MESSAGE) {
-		User;
-		m_UserManager->sendMessageToUser();
+		vector<User> users = m_SuperMessage->translateReceiverID(message.m_MessageReceiver);
+		
+		for (auto i = users.begin(); i != users.end(); i++) {
+			m_UserManager->sendMessageToUser((*i), message.to_String());
+		}
+		
 	}
 	else {
 		qDebug() << "there is an error in dealing with reply message ";
