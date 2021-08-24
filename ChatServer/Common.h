@@ -8,3 +8,4 @@ string deleteEscapeCharacter(string s, char c);
 vector<string> split(string s, string sep, bool reserve_last = false, bool reserve_last_empty = false);
 string strftime(string format = "%Y:-%m-%d %H:%M:%S", time_t t = time(0), int buffer_size = 256);
 char getRandomFromVector(vector<char> v);
+

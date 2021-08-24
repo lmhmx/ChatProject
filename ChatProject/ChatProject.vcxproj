@@ -116,6 +116,7 @@
     <ClCompile Include="NetManagerClient.cpp" />
     <ClCompile Include="MainUiController.cpp" />
     <ClCompile Include="Widget_ChatItem_Controller.cpp" />
+    <ClCompile Include="Widget_ChatList_Controller.cpp" />
     <QtRcc Include="ChatProject.qrc" />
     <QtUic Include="ChatApp.ui" />
     <QtMoc Include="ChatClientApp.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
+    <QtMoc Include="Widget_ChatList_Controller.h" />
     <QtMoc Include="Widget_ChatItem_Controller.h" />
     <QtMoc Include="ChatClientCore.h" />
     <ClInclude Include="Share.h" />
