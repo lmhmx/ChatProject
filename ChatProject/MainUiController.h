@@ -25,6 +25,11 @@ public:
 
 public:
     void newMessage(Message message);
+
+signals:
+    void signal_SendMessage(Message m);
+
+
 public:
 
 private:
@@ -32,19 +37,17 @@ private:
     // 在聊天显示界面显示消息
     void setCurrentChat(string id);
 
-public:
-    void slot_SendMessageClick();
-    void slot_SendMessageEnterClick();
-    void slot_EmojiClick();
-    void slot_FileClick();
     
-    void slot_AddClick();
 
+protected:
     void slot_SelectChanged();
+
+
+protected:
+    void slot_SendMessage(MessageContent m);
+
 private:
     
-signals:
-    void signal_SendMessage(Message m);
 
 private:
     // 索引和每一个id对应的消息

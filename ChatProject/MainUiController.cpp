@@ -24,6 +24,15 @@ void MainUiController::newMessage(Message message) {
 	this->m_ChatList_Controller->setItem(uid, 1, QPixmap(), "name", "message", "time", true);
 	
 }
+
+void MainUiController::slot_SendMessage(MessageContent m) {
+	Message message;
+	message.m_MessageContent = m;
+	message.m_MessageType = MessageType::MessageType::MESSAGE;
+	message.m_MessageReceiver = m_ChatList_Controller->currentSelectionID();
+	
+	emit signal_SendMessage(message);
+}
 void MainUiController::slot_SelectChanged() {
 	string id = m_ChatList_Controller->currentSelectionID();
 	setCurrentChat(id);
@@ -31,24 +40,7 @@ void MainUiController::slot_SelectChanged() {
 }
 void MainUiController::setCurrentChat(string id){
 	vector<Message> m = m_Messages[id];
-	for (int i = 0; i < m.size(); i++) {
-
-		;
-	}
+	
+	m_MessageShow_Controller->setMessage(m);
 	m_ChatList_Controller->setCurrentSelect(id);
-}
-void MainUiController::slot_SendMessageClick() {
-
-}
-void MainUiController::slot_SendMessageEnterClick() {
-
-}
-void MainUiController::slot_EmojiClick() {
-
-}
-void MainUiController::slot_FileClick() {
-
-}
-void MainUiController::slot_AddClick() {
-	QMessageBox::information(0, "add click", "not yet");
 }
