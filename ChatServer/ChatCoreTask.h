@@ -40,6 +40,7 @@ private:
 	SuperUserLogIn* m_SuperLogIn;
 	SuperUserRegister* m_SuperRegister;
 
+
 private:
 	UserManager* m_UserManager;
 	map<string, string> m_CertifacatesForUid;

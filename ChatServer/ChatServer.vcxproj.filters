@@ -54,11 +54,11 @@
     <Filter Include="Source Files\User">
       <UniqueIdentifier>{b9ee35f3-6b1f-478b-bd88-7c706e36e77c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\SuperAdministrator">
-      <UniqueIdentifier>{f5983a14-e7a5-41d4-9031-acb788dc674d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\SuperAdministrator">
+    <Filter Include="Source Files\User\SuperAdministrator">
       <UniqueIdentifier>{e2808830-939a-441f-98b8-f06134f7b7e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\User\SuperAdministrator">
+      <UniqueIdentifier>{f5983a14-e7a5-41d4-9031-acb788dc674d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -110,16 +110,19 @@
       <Filter>Source Files\User</Filter>
     </ClCompile>
     <ClCompile Include="SuperUserRegister.cpp">
-      <Filter>Source Files\SuperAdministrator</Filter>
+      <Filter>Source Files\User\SuperAdministrator</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseSuperUserInterface.cpp">
-      <Filter>Source Files\SuperAdministrator</Filter>
+      <Filter>Source Files\User\SuperAdministrator</Filter>
     </ClCompile>
     <ClCompile Include="SuperUserLogIn.cpp">
-      <Filter>Source Files\SuperAdministrator</Filter>
+      <Filter>Source Files\User\SuperAdministrator</Filter>
     </ClCompile>
     <ClCompile Include="Authorization.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperUserMessage.cpp">
+      <Filter>Source Files\User\SuperAdministrator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,16 +154,19 @@
       <Filter>Header Files\User</Filter>
     </ClInclude>
     <ClInclude Include="SuperUserRegister.h">
-      <Filter>Header Files\SuperAdministrator</Filter>
+      <Filter>Header Files\User\SuperAdministrator</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseSuperUserInterface.h">
-      <Filter>Header Files\SuperAdministrator</Filter>
+      <Filter>Header Files\User\SuperAdministrator</Filter>
     </ClInclude>
     <ClInclude Include="SuperUserLogIn.h">
-      <Filter>Header Files\SuperAdministrator</Filter>
+      <Filter>Header Files\User\SuperAdministrator</Filter>
     </ClInclude>
     <ClInclude Include="Authorization.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperUserMessage.h">
+      <Filter>Header Files\User\SuperAdministrator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

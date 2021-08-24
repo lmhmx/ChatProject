@@ -15,7 +15,7 @@ string SuperUserLogIn::getUidFromPhone(string phone) {
 	return "";
 }
 bool SuperUserLogIn::doLoginAUser(string& phone_mail, string& pwd, string loginway) {
-
+	
 	return 1;
 }
 string SuperUserLogIn::getSuperUid() {

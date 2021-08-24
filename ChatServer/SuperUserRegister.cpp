@@ -13,6 +13,7 @@ User SuperUserRegister::doRegisterAUser(string& phone_mail, string& pwd, string 
 		m_DatabaseUid, m_DatabasePWD);
 	return resUser;
 }
+
 string SuperUserRegister::getSuperUid() {
 	return this->m_DatabaseUid;
 }

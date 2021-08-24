@@ -178,7 +178,8 @@ void ChatCoreTask::removeCertifacate(string uid, string certifacate) {
 }
 void ChatCoreTask::replyToMessage(Message& message, QTcpSocket* socket) {
 	if (message.m_MessageType == MessageType::MessageType::MESSAGE) {
-
+		User;
+		m_UserManager->sendMessageToUser();
 	}
 	else {
 		qDebug() << "there is an error in dealing with reply message ";

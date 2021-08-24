@@ -117,6 +117,7 @@
     <ClCompile Include="MessageHeader.cpp" />
     <ClCompile Include="NetManager.cpp" />
     <ClCompile Include="SuperUserLogIn.cpp" />
+    <ClCompile Include="SuperUserMessage.cpp" />
     <ClCompile Include="SuperUserRegister.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserCore.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Authorization.h" />
     <ClInclude Include="DatabaseSuperUserInterface.h" />
     <ClInclude Include="SuperUserLogIn.h" />
+    <ClInclude Include="SuperUserMessage.h" />
     <ClInclude Include="SuperUserRegister.h" />
     <ClInclude Include="UserHeader.h" />
     <QtMoc Include="ChatCoreTask.h" />
