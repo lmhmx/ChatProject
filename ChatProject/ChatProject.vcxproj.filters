@@ -118,6 +118,12 @@
     <ClCompile Include="Widget_ChatList_Controller.cpp">
       <Filter>Source Files\Widget_MainUiController</Filter>
     </ClCompile>
+    <ClCompile Include="Widget_MessageSend_Controller.cpp">
+      <Filter>Source Files\Widget_MainUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_MessageShow_Controller.cpp">
+      <Filter>Source Files\Widget_MainUiController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Widget_LogIn_Mail.ui">
@@ -195,6 +201,12 @@
     </ClInclude>
     <ClInclude Include="..\ChatServer\Common.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget_MessageSend_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget_MessageShow_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

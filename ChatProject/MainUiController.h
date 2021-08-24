@@ -1,8 +1,7 @@
 #pragma once
 #include <qwidget.h>
 # include "ui_Widget_Main.h"
-# include "ui_Widget_MessageShow.h"
-# include "ui_Widget_MessageSend.h"
+
 # include <string>
 # include <qlistwidget.h>
 # include <qmessagebox.h>
@@ -10,6 +9,8 @@
 # include <map>
 # include <boost/bimap.hpp>
 # include "Widget_ChatList_Controller.h"
+# include "Widget_MessageSend_Controller.h"
+# include "Widget_MessageShow_Controller.h"
 # include "Share.h"
 
 using namespace std;
@@ -51,14 +52,12 @@ private:
 
 private:
     Widget_ChatList_Controller* m_ChatList_Controller;
-
+    Widget_MessageSend_Controller* m_MessageSend_Controller;
+    Widget_MessageShow_Controller* m_MessageShow_Controller;
 
 private:
     Ui::Widget_Main ui_main;
-    Ui::Widget_Send ui_send;
-
     
-    Ui::Widget_MessageShow ui_MessageShow;
     
 };
 

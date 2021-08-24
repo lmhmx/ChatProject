@@ -4,9 +4,12 @@ MainUiController::MainUiController(QWidget* parent):QWidget(parent) {
 	ui_main.setupUi(this);
 	m_ChatList_Controller = new Widget_ChatList_Controller(ui_main.widget_ChatList);
 
-	ui_MessageShow.setupUi(ui_main.widget_MessageShow);
-	ui_send.setupUi(ui_main.widget_MessageSend);
-	connect(m_ChatList_Controller, &Widget_ChatList_Controller::itemSelectionChanged,
+	m_MessageSend_Controller = new Widget_MessageSend_Controller(ui_main.widget_MessageSend);
+
+	m_MessageShow_Controller = new Widget_MessageShow_Controller(ui_main.widget_MessageShow);
+
+	
+	connect(m_ChatList_Controller, &Widget_ChatList_Controller::signal_itemSelectionChanged,
 		this, &MainUiController::slot_SelectChanged);
 }
 
@@ -22,18 +25,17 @@ void MainUiController::newMessage(Message message) {
 	
 }
 void MainUiController::slot_SelectChanged() {
-	
 	string id = m_ChatList_Controller->currentSelectionID();
-	
 	setCurrentChat(id);
 	
 }
 void MainUiController::setCurrentChat(string id){
 	vector<Message> m = m_Messages[id];
 	for (int i = 0; i < m.size(); i++) {
-		ui_MessageShow.textEdit_Show->append(m[i].to_String().c_str());
-	}
 
+		;
+	}
+	m_ChatList_Controller->setCurrentSelect(id);
 }
 void MainUiController::slot_SendMessageClick() {
 

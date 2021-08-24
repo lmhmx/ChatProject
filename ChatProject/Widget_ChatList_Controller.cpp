@@ -1,6 +1,7 @@
 #include "Widget_ChatList_Controller.h"
 
-Widget_ChatList_Controller::Widget_ChatList_Controller(QWidget* parent) {
+Widget_ChatList_Controller::Widget_ChatList_Controller(QWidget* parent)
+		:QWidget(parent){
 	ui.setupUi(this);
 	
 }

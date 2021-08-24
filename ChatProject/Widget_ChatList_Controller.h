@@ -21,7 +21,7 @@ public:
 
 signals:
 	// 将QT接口封装成自己的类的接口
-	void itemSelectionChanged();
+	void signal_itemSelectionChanged();
 public slots:
 	// 返回当前选中的项的对应的ID
 	string currentSelectionID();
