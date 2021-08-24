@@ -173,6 +173,9 @@
     <QtMoc Include="Widget_ChatList_Controller.h">
       <Filter>Header Files\Widget_MainUiController</Filter>
     </QtMoc>
+    <QtMoc Include="Widget_MessageSend_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h">
@@ -201,9 +204,6 @@
     </ClInclude>
     <ClInclude Include="..\ChatServer\Common.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget_MessageSend_Controller.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\Widget_MainUiController</Filter>

@@ -147,7 +147,7 @@
     <ClInclude Include="..\ChatServer\User.h" />
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
-    <ClInclude Include="Widget_MessageSend_Controller.h" />
+    <QtMoc Include="Widget_MessageSend_Controller.h" />
     <ClInclude Include="Widget_MessageShow_Controller.h" />
     <QtMoc Include="Widget_ChatList_Controller.h" />
     <QtMoc Include="Widget_ChatItem_Controller.h" />

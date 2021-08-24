@@ -6,6 +6,7 @@
 # include "Share.h"
 class Widget_MessageSend_Controller:public QWidget
 {
+	Q_OBJECT
 public:
 	Widget_MessageSend_Controller(QWidget* parent = Q_NULLPTR);
 

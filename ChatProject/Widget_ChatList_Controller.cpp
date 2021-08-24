@@ -15,8 +15,8 @@ void Widget_ChatList_Controller::setItem(string id, int newMessageNum,
 		updateItem(id, newMessageNum, pic, name, message, time, mute);
 	}
 }
-string Widget_ChatList_Controller::setCurrentSelect(string id) {
-	QListWidgetItem* currentItem = m_ID2Item.left[id];
+void Widget_ChatList_Controller::setCurrentSelect(string id) {
+	QListWidgetItem* currentItem = m_ID2Item.left.at(id);
 	ui.listWidget_ChatList->setCurrentItem(currentItem);
 
 }
@@ -52,4 +52,8 @@ bool Widget_ChatList_Controller::removeItem(string id) {
 	ui.listWidget_ChatList->takeItem(row);
 	delete item;
 	return true;
+}
+string Widget_ChatList_Controller::currentSelectionID() {
+
+	return "";
 }

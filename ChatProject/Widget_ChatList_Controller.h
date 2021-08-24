@@ -4,7 +4,7 @@
 # include "Widget_ChatItem_Controller.h"
 # include <qpixmap.h>
 # include <boost/bimap.hpp>
-
+using namespace std;
 class Widget_ChatList_Controller:public QWidget
 {
 	Q_OBJECT
@@ -25,7 +25,7 @@ signals:
 public slots:
 	// 返回当前选中的项的对应的ID
 	string currentSelectionID();
-	string setCurrentSelect(string id);
+	void setCurrentSelect(string id);
 
 
 private:
