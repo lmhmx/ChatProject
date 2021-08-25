@@ -31,8 +31,22 @@ void UserManager::removeSocketFromUserSocket(QTcpSocket* socket) {
 	}
 }
 void UserManager::updateSocketToUserSocket(QTcpSocket* socket, User user) {
+	// qDebug
+	{
+		qDebug() << "insert before";
+		qDebug() << user.m_UserID.c_str()<<" : "<< socket->localAddress();
+		for (auto i = m_User2Socket.left.begin(); i != m_User2Socket.left.end(); i++) {
+			qDebug() << (*i).first.m_UserID.c_str() <<" : " <<(*i).second->localAddress();
+		}
+	}
 	m_User2Socket.left.insert({ user,socket });
-	
+	{
+		qDebug() << "insert after";
+		qDebug() << user.m_UserID.c_str() << " : " << socket->localAddress();
+		for (auto i = m_User2Socket.left.begin(); i != m_User2Socket.left.end(); i++) {
+			qDebug() << (*i).first.m_UserID.c_str() << " : " << (*i).second->localAddress();
+		}
+	}
 }
 void UserManager::slotNewMessage(QTcpSocket* socket, string message) {
 	qDebug() << "UserManager::slotNewMessage: " << message.c_str();
@@ -47,6 +61,10 @@ void UserManager::sendMessageToUser(User receiver, string message) {
 		user_socket->second->write(QByteArray::fromStdString(message));
 	}
 	else {
+		qDebug() << receiver.m_UserID.c_str();
+		for (auto i = m_User2Socket.left.begin(); i != m_User2Socket.left.end(); i++) {
+			qDebug() << (*i).first.m_UserID.c_str();
+		}
 		qDebug() << "invalid user";
 	}
 }
