@@ -124,6 +124,9 @@
     <ClCompile Include="SuperUserMessage.cpp">
       <Filter>Source Files\User\SuperAdministrator</Filter>
     </ClCompile>
+    <ClCompile Include="PrivateDatabase.cpp">
+      <Filter>Source Files\DatabaseManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseManager.h">
@@ -167,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="SuperUserMessage.h">
       <Filter>Header Files\User\SuperAdministrator</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateDatabase.h">
+      <Filter>Header Files\DatabaseManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

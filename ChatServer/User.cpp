@@ -14,6 +14,10 @@ User::User(const User& user) {
 	this->m_UserPhone = user.m_UserPhone;
 	this->m_UserType = user.m_UserType;
 }
+User::~User() {
+	m_FriendsID.~vector();
+	m_GroupsID.~vector();
+}
 User User::operator=(const User& user) {
 	this->copyFrom(user);
 	return *this;

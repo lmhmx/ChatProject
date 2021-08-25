@@ -10,6 +10,7 @@ class User:public UserCore {
 public:
 	User();
 	User(const User& user);
+	~User();
 	void init();
 
 	User operator=(const User& user);
