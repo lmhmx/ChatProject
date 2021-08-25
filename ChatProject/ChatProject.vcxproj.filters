@@ -30,12 +30,6 @@
     <Filter Include="Form Files\UiLogInRegister">
       <UniqueIdentifier>{3b3868c5-750f-4e47-a198-2ec869603627}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LogInRegisterUiController">
-      <UniqueIdentifier>{83111597-20b4-4060-9154-24379589dea1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\LogInRegisterUiController">
-      <UniqueIdentifier>{3a8c1a28-6f43-4138-a63c-38429d817fbb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Form Files\UiMain">
       <UniqueIdentifier>{a2221749-0db3-46ed-8130-f4f7126b1d14}</UniqueIdentifier>
     </Filter>
@@ -54,11 +48,17 @@
     <Filter Include="Source Files\Message">
       <UniqueIdentifier>{c7966b43-8b79-4f13-a439-bc72f204a2b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Widget_Main">
+    <Filter Include="Header Files\Widget_LogInRegisterUiController">
+      <UniqueIdentifier>{83111597-20b4-4060-9154-24379589dea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widget_MainUiController">
       <UniqueIdentifier>{98ce8e5b-cc01-45e4-9001-99ebdeee11b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Widget_Main">
+    <Filter Include="Source Files\Widget_MainUiController">
       <UniqueIdentifier>{25733c03-c313-481c-9579-6d841bd2b8d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widget_LogInRegisterUiController">
+      <UniqueIdentifier>{3a8c1a28-6f43-4138-a63c-38429d817fbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +83,7 @@
       <Filter>Source Files\Net</Filter>
     </ClCompile>
     <ClCompile Include="LogInRegisterUiController.cpp">
-      <Filter>Source Files\LogInRegisterUiController</Filter>
+      <Filter>Source Files\Widget_LogInRegisterUiController</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\User.cpp">
       <Filter>Source Files\User</Filter>
@@ -107,13 +107,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainUiController.cpp">
-      <Filter>Source Files\Widget_Main</Filter>
+      <Filter>Source Files\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="ChatClientCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Widget_ChatItem_Controller.cpp">
-      <Filter>Source Files\Widget_Main</Filter>
+      <Filter>Source Files\Widget_MainUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_ChatList_Controller.cpp">
+      <Filter>Source Files\Widget_MainUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_MessageSend_Controller.cpp">
+      <Filter>Source Files\Widget_MainUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_MessageShow_Controller.cpp">
+      <Filter>Source Files\Widget_MainUiController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -150,16 +159,22 @@
       <Filter>Header Files\Net</Filter>
     </QtMoc>
     <QtMoc Include="LogInRegisterUiController.h">
-      <Filter>Header Files\LogInRegisterUiController</Filter>
+      <Filter>Header Files\Widget_LogInRegisterUiController</Filter>
     </QtMoc>
     <QtMoc Include="MainUiController.h">
-      <Filter>Header Files\Widget_Main</Filter>
+      <Filter>Header Files\Widget_MainUiController</Filter>
     </QtMoc>
     <QtMoc Include="ChatClientCore.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Widget_ChatItem_Controller.h">
-      <Filter>Header Files\Widget_Main</Filter>
+      <Filter>Header Files\Widget_MainUiController</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget_ChatList_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget_MessageSend_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +204,9 @@
     </ClInclude>
     <ClInclude Include="..\ChatServer\Common.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget_MessageShow_Controller.h">
+      <Filter>Header Files\Widget_MainUiController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
