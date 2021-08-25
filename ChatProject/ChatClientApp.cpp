@@ -4,7 +4,7 @@ ChatClientApp::ChatClientApp(QWidget *parent)
 {
     m_ChatClientCore = new ChatClientCore();
     
-    connect(m_ChatClientCore, &ChatClientCore::signal_LogInSucceed,
+    connect(m_ChatClientCore, &ChatClientCore::signal_RegisterSucceed,
         this, &ChatClientApp::slotRegisterSucceed);
     connect(m_ChatClientCore, &ChatClientCore::signal_LogInSucceed,
         this, &ChatClientApp::slotLogInSucceed);
@@ -30,6 +30,7 @@ void ChatClientApp::slotLogInByMail(string mail, string pwd) {
 }
 void ChatClientApp::slotLogInSucceed(bool succeed) {
     if (succeed) {
+        QMessageBox::warning(0, "ok", "log succeed");
         setPageMainWindow();
     }
     else {
@@ -39,6 +40,7 @@ void ChatClientApp::slotLogInSucceed(bool succeed) {
 }
 void ChatClientApp::slotRegisterSucceed(bool succeed) {
     if (succeed) {
+        QMessageBox::warning(0, "ok", "register succeed");
         setPageMainWindow();
     }
     else {

@@ -2,6 +2,8 @@
 ChatClientCore::ChatClientCore(QObject* parent) {
 	m_NetManagerClient = new NetManagerClient();
 	m_OnlineCertificate = "";
+    connect(m_NetManagerClient, &NetManagerClient::signalReceiveMessage,
+        this, &ChatClientCore::slotNewMessage);
 }
 
 void ChatClientCore::sendMessage(Message m) {
@@ -27,6 +29,7 @@ void ChatClientCore::slotNewMessage(string message) {
     }
 }
 void ChatClientCore::actionToLogInMessage(Message m) {
+    qDebug() << m.to_String().c_str();
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::LOGIN_reply) {
         if (m.m_MessageContent.m_Content["LOGIN_RESULT"] == "SUCCEED") {
@@ -40,6 +43,7 @@ void ChatClientCore::actionToLogInMessage(Message m) {
     }
 }
 void ChatClientCore::actionToRegisterMessage(Message m) {
+    qDebug() << m.to_String().c_str();
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::REGISTER_reply) {
         if (m.m_MessageContent.m_Content["REGISTER_RESULT"] == "SUCCEED") {

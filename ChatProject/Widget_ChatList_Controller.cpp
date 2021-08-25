@@ -54,6 +54,7 @@ bool Widget_ChatList_Controller::removeItem(string id) {
 	return true;
 }
 string Widget_ChatList_Controller::currentSelectionID() {
-
-	return "";
+	QListWidgetItem* item = ui.listWidget_ChatList->currentItem();
+	string id = m_ID2Item.right.at(item);
+	return id;
 }
