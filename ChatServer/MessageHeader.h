@@ -8,6 +8,7 @@ namespace MessageType {
 		// 
 		LOGIN,
 		MESSAGE,
+		COMMAND,
 		REGISTER
 
 	};
@@ -21,6 +22,12 @@ namespace MessageContentType {
 		MESSAGE_file,
 		MESSAGE_bigPicture,
 		MESSAGE_bigFile,
+		MESSAGE_addFriend,
+
+		COMMAND_searchUser_request,
+		COMMAND_searchUser_reply,
+
+
 		LOGIN_request,
 		LOGIN_reply,
 		REGISTER_request,

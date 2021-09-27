@@ -21,44 +21,62 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
-    <Filter Include="Header Files\Net">
-      <UniqueIdentifier>{64c2ba28-bf90-4b3e-9c26-9c6bc9b6f0bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Net">
-      <UniqueIdentifier>{57c521bf-9d00-4243-a0da-778c0b0aa26a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Form Files\UiLogInRegister">
       <UniqueIdentifier>{3b3868c5-750f-4e47-a198-2ec869603627}</UniqueIdentifier>
     </Filter>
     <Filter Include="Form Files\UiMain">
       <UniqueIdentifier>{a2221749-0db3-46ed-8130-f4f7126b1d14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Group">
-      <UniqueIdentifier>{e18d7930-a9fb-425c-a89e-ea551fa2eb85}</UniqueIdentifier>
+    <Filter Include="Header Files\WidgetController">
+      <UniqueIdentifier>{426d21b9-de72-4e19-9979-d0fab4ed2509}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Message">
-      <UniqueIdentifier>{06754704-f9f9-44e2-ae4f-eff5a5f8c2df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\User">
-      <UniqueIdentifier>{93401214-dd67-4622-b197-1e2f23f700b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\User">
-      <UniqueIdentifier>{37e8e250-884c-4ead-83ee-a254c8cab640}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Message">
-      <UniqueIdentifier>{c7966b43-8b79-4f13-a439-bc72f204a2b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Widget_LogInRegisterUiController">
+    <Filter Include="Header Files\WidgetController\Widget_LogInRegisterUiController">
       <UniqueIdentifier>{83111597-20b4-4060-9154-24379589dea1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Widget_MainUiController">
+    <Filter Include="Header Files\WidgetController\Widget_MainUiController">
       <UniqueIdentifier>{98ce8e5b-cc01-45e4-9001-99ebdeee11b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Widget_MainUiController">
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{6eafe7f4-7b02-4f82-914c-e6047f0d1d56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Message">
+      <UniqueIdentifier>{06754704-f9f9-44e2-ae4f-eff5a5f8c2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Group">
+      <UniqueIdentifier>{e18d7930-a9fb-425c-a89e-ea551fa2eb85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\User">
+      <UniqueIdentifier>{93401214-dd67-4622-b197-1e2f23f700b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{c7cf8088-2d4b-40fe-8e80-aee5a5ec9f3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\User">
+      <UniqueIdentifier>{37e8e250-884c-4ead-83ee-a254c8cab640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Message">
+      <UniqueIdentifier>{c7966b43-8b79-4f13-a439-bc72f204a2b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NetLayer">
+      <UniqueIdentifier>{57c521bf-9d00-4243-a0da-778c0b0aa26a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WidgetController">
+      <UniqueIdentifier>{51c4672a-3fa9-4f9a-9d48-c0d90d954367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WidgetController\Widget_LogInRegisterUiController">
+      <UniqueIdentifier>{3a8c1a28-6f43-4138-a63c-38429d817fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WidgetController\Widget_MainUiController">
       <UniqueIdentifier>{25733c03-c313-481c-9579-6d841bd2b8d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Widget_LogInRegisterUiController">
-      <UniqueIdentifier>{3a8c1a28-6f43-4138-a63c-38429d817fbb}</UniqueIdentifier>
+    <Filter Include="Header Files\NetLayer">
+      <UniqueIdentifier>{64c2ba28-bf90-4b3e-9c26-9c6bc9b6f0bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CommunicateLayer">
+      <UniqueIdentifier>{d78ca225-4015-4a59-b5dc-b01c847c9dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CommunicateLayer">
+      <UniqueIdentifier>{2e0d8db9-5250-4741-a551-6f1095312037}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,61 +86,58 @@
     <QtUic Include="ChatApp.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="ChatClientApp.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <ClCompile Include="ChatClientApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NetManagerClient.cpp">
-      <Filter>Source Files\Net</Filter>
+      <Filter>Source Files\NetLayer</Filter>
     </ClCompile>
     <ClCompile Include="LogInRegisterUiController.cpp">
-      <Filter>Source Files\Widget_LogInRegisterUiController</Filter>
+      <Filter>Source Files\WidgetController\Widget_LogInRegisterUiController</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\User.cpp">
-      <Filter>Source Files\User</Filter>
+      <Filter>Source Files\Core\User</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\UserCore.cpp">
-      <Filter>Source Files\User</Filter>
+      <Filter>Source Files\Core\User</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\UserHeader.cpp">
-      <Filter>Source Files\User</Filter>
+      <Filter>Source Files\Core\User</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\Message.cpp">
-      <Filter>Source Files\Message</Filter>
+      <Filter>Source Files\Core\Message</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\MessageContent.cpp">
-      <Filter>Source Files\Message</Filter>
+      <Filter>Source Files\Core\Message</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\MessageHeader.cpp">
-      <Filter>Source Files\Message</Filter>
+      <Filter>Source Files\Core\Message</Filter>
     </ClCompile>
     <ClCompile Include="..\ChatServer\Common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainUiController.cpp">
-      <Filter>Source Files\Widget_MainUiController</Filter>
-    </ClCompile>
-    <ClCompile Include="ChatClientCore.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="Widget_ChatItem_Controller.cpp">
-      <Filter>Source Files\Widget_MainUiController</Filter>
+      <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="Widget_ChatList_Controller.cpp">
-      <Filter>Source Files\Widget_MainUiController</Filter>
+      <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="Widget_MessageSend_Controller.cpp">
-      <Filter>Source Files\Widget_MainUiController</Filter>
+      <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="Widget_MessageShow_Controller.cpp">
-      <Filter>Source Files\Widget_MainUiController</Filter>
+      <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatClientCore.cpp">
+      <Filter>Source Files\CommunicateLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatClientApp.cpp">
+      <Filter>Source Files\WidgetController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,48 +171,51 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NetManagerClient.h">
-      <Filter>Header Files\Net</Filter>
+      <Filter>Header Files\NetLayer</Filter>
     </QtMoc>
     <QtMoc Include="LogInRegisterUiController.h">
-      <Filter>Header Files\Widget_LogInRegisterUiController</Filter>
+      <Filter>Header Files\WidgetController\Widget_LogInRegisterUiController</Filter>
     </QtMoc>
     <QtMoc Include="MainUiController.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
-    </QtMoc>
-    <QtMoc Include="ChatClientCore.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </QtMoc>
     <QtMoc Include="Widget_ChatItem_Controller.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
+      <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </QtMoc>
     <QtMoc Include="Widget_ChatList_Controller.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
+      <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </QtMoc>
     <QtMoc Include="Widget_MessageSend_Controller.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
+      <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
+    </QtMoc>
+    <QtMoc Include="ChatClientCore.h">
+      <Filter>Header Files\CommunicateLayer</Filter>
+    </QtMoc>
+    <QtMoc Include="ChatClientApp.h">
+      <Filter>Header Files\WidgetController</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h">
-      <Filter>Header Files\Group</Filter>
+      <Filter>Header Files\Core\Group</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\MessageContent.h">
-      <Filter>Header Files\Message</Filter>
+      <Filter>Header Files\Core\Message</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\Message.h">
-      <Filter>Header Files\Message</Filter>
+      <Filter>Header Files\Core\Message</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\MessageHeader.h">
-      <Filter>Header Files\Message</Filter>
+      <Filter>Header Files\Core\Message</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\UserHeader.h">
-      <Filter>Header Files\User</Filter>
+      <Filter>Header Files\Core\User</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\UserCore.h">
-      <Filter>Header Files\User</Filter>
+      <Filter>Header Files\Core\User</Filter>
     </ClInclude>
     <ClInclude Include="..\ChatServer\User.h">
-      <Filter>Header Files\User</Filter>
+      <Filter>Header Files\Core\User</Filter>
     </ClInclude>
     <ClInclude Include="Share.h">
       <Filter>Header Files</Filter>
@@ -206,7 +224,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
-      <Filter>Header Files\Widget_MainUiController</Filter>
+      <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
