@@ -84,6 +84,9 @@
     <Filter Include="Source Files\MessageProcessLayer">
       <UniqueIdentifier>{a8cfecf0-79b5-4d1e-8db1-7c6826cfda55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Form Files\Widget_Search">
+      <UniqueIdentifier>{3a1ce595-9f10-4e74-9f5b-e314be4e7fca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ChatProject.qrc">
@@ -176,6 +179,12 @@
     </QtUic>
     <QtUic Include="Widget_ChatItem.ui">
       <Filter>Form Files\UiMain</Filter>
+    </QtUic>
+    <QtUic Include="Widget_addFriend.ui">
+      <Filter>Form Files\Widget_Search</Filter>
+    </QtUic>
+    <QtUic Include="Widget_searchFriend.ui">
+      <Filter>Form Files\Widget_Search</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
