@@ -46,7 +46,6 @@ void ChatClientApp::slotRegisterSucceed(bool succeed) {
     else {
         QMessageBox::warning(0, "error", "register failed");
     }
-
 }
 void ChatClientApp::slotSendMessageFromMainUi(Message message) {
     sendMessage(message);

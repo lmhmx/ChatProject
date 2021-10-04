@@ -87,6 +87,18 @@
     <Filter Include="Form Files\Widget_Search">
       <UniqueIdentifier>{3a1ce595-9f10-4e74-9f5b-e314be4e7fca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\WidgetController\Widget_SearchUiController">
+      <UniqueIdentifier>{b3f8f8e4-44ab-429c-a993-ca3485cb752d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WidgetController\Widget_SeachUiController">
+      <UniqueIdentifier>{6cbbcfa3-da46-4ec7-a889-e29255a39d71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WidgetController\Widget_AddFriendUiController">
+      <UniqueIdentifier>{6db4f8e9-78c6-443f-a476-bd9bf1567dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WidgetController\Widget_AddFriendUiController">
+      <UniqueIdentifier>{ed4821b2-488f-4d87-b4b5-7bf5a62715c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ChatProject.qrc">
@@ -150,6 +162,15 @@
     </ClCompile>
     <ClCompile Include="MessageProcessCore.cpp">
       <Filter>Source Files\MessageProcessLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_SearchUiController.cpp">
+      <Filter>Source Files\WidgetController\Widget_SearchUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_SearchFriendUiController.cpp">
+      <Filter>Source Files\WidgetController\Widget_SearchUiController</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget_addFriendUiController.cpp">
+      <Filter>Source Files\WidgetController\Widget_AddFriendUiController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +236,12 @@
     <QtMoc Include="MessageProcessCore.h">
       <Filter>Header Files\MessageProcessLayer</Filter>
     </QtMoc>
+    <QtMoc Include="Widget_SearchUiController.h">
+      <Filter>Header Files\WidgetController\Widget_SeachUiController</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget_SearchFriendUiController.h">
+      <Filter>Header Files\WidgetController\Widget_SeachUiController</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h">
@@ -246,6 +273,9 @@
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget_addFriendUiController.h">
+      <Filter>Header Files\WidgetController\Widget_AddFriendUiController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
