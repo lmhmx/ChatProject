@@ -145,8 +145,8 @@
     <ClCompile Include="ChatClientApp.cpp">
       <Filter>Source Files\WidgetController</Filter>
     </ClCompile>
-    <ClCompile Include="MassageProcessCore.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MessageProcessCore.cpp">
+      <Filter>Source Files\MessageProcessLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,8 +235,8 @@
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </ClInclude>
-    <ClInclude Include="MassageProcessCore.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MessageProcessCore.h">
+      <Filter>Header Files\MessageProcessLayer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
