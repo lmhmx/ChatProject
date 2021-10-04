@@ -4,11 +4,11 @@
 # include "Share.h"
 # include "NetManagerClient.h"
 using namespace std;
-class ChatClientCore:public QObject
+class MessageManagerClient:public QObject
 {
 	Q_OBJECT
 public:
-	ChatClientCore(QObject* parent = Q_NULLPTR);
+	MessageManagerClient(QObject* parent = Q_NULLPTR);
 
 public:
 	// 向下级发送的总接口

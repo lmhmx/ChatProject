@@ -139,11 +139,14 @@
     <ClCompile Include="Widget_MessageShow_Controller.cpp">
       <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
-    <ClCompile Include="ChatClientCore.cpp">
+    <ClCompile Include="MessageManagerClient.cpp">
       <Filter>Source Files\MessageLayer</Filter>
     </ClCompile>
     <ClCompile Include="ChatClientApp.cpp">
       <Filter>Source Files\WidgetController</Filter>
+    </ClCompile>
+    <ClCompile Include="MassageProcessCore.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,7 +197,7 @@
     <QtMoc Include="Widget_MessageSend_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </QtMoc>
-    <QtMoc Include="ChatClientCore.h">
+    <QtMoc Include="MessageManagerClient.h">
       <Filter>Header Files\MessageLayer</Filter>
     </QtMoc>
     <QtMoc Include="ChatClientApp.h">
@@ -231,6 +234,9 @@
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
+    </ClInclude>
+    <ClInclude Include="MassageProcessCore.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

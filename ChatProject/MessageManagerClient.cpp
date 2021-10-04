@@ -1,17 +1,17 @@
-#include "ChatClientCore.h"
-ChatClientCore::ChatClientCore(QObject* parent) {
+#include "MessageManagerClient.h"
+MessageManagerClient::MessageManagerClient(QObject* parent) {
 	m_NetManagerClient = new NetManagerClient();
 	m_OnlineCertificate = "";
     connect(m_NetManagerClient, &NetManagerClient::signalReceiveMessage,
-        this, &ChatClientCore::slotNewMessage);
+        this, &MessageManagerClient::slotNewMessage);
 }
 
-void ChatClientCore::sendMessage(Message m) {
+void MessageManagerClient::sendMessage(Message m) {
 	string s = m.to_String();
 	m_NetManagerClient->slotSendMessage(s);
 
 }
-void ChatClientCore::slotNewMessage(string message) {
+void MessageManagerClient::slotNewMessage(string message) {
     Message m = Message::to_Message(message);
     switch (m.m_MessageType) {
     case MessageType::MessageType::REGISTER:
@@ -28,7 +28,7 @@ void ChatClientCore::slotNewMessage(string message) {
         break;
     }
 }
-void ChatClientCore::actionToLogInMessage(Message m) {
+void MessageManagerClient::actionToLogInMessage(Message m) {
     qDebug() << m.to_String().c_str();
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::LOGIN_reply) {
@@ -42,7 +42,7 @@ void ChatClientCore::actionToLogInMessage(Message m) {
         }
     }
 }
-void ChatClientCore::actionToRegisterMessage(Message m) {
+void MessageManagerClient::actionToRegisterMessage(Message m) {
     qDebug() << m.to_String().c_str();
     if (m.m_MessageContent.m_MessageContentType ==
         MessageContentType::MessageContentType::REGISTER_reply) {
@@ -57,6 +57,6 @@ void ChatClientCore::actionToRegisterMessage(Message m) {
         }
     }
 }
-void ChatClientCore::actionToMessageMessage(Message m) {
+void MessageManagerClient::actionToMessageMessage(Message m) {
     emit signal_NewMessage(m);
 }

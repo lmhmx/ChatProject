@@ -111,7 +111,8 @@
     <ClCompile Include="..\ChatServer\User.cpp" />
     <ClCompile Include="..\ChatServer\UserCore.cpp" />
     <ClCompile Include="..\ChatServer\UserHeader.cpp" />
-    <ClCompile Include="ChatClientCore.cpp" />
+    <ClCompile Include="MassageProcessCore.cpp" />
+    <ClCompile Include="MessageManagerClient.cpp" />
     <ClCompile Include="LogInRegisterUiController.cpp" />
     <ClCompile Include="NetManagerClient.cpp" />
     <ClCompile Include="MainUiController.cpp" />
@@ -148,10 +149,11 @@
     <ClInclude Include="..\ChatServer\UserCore.h" />
     <ClInclude Include="..\ChatServer\UserHeader.h" />
     <QtMoc Include="Widget_MessageSend_Controller.h" />
+    <ClInclude Include="MassageProcessCore.h" />
     <ClInclude Include="Widget_MessageShow_Controller.h" />
     <QtMoc Include="Widget_ChatList_Controller.h" />
     <QtMoc Include="Widget_ChatItem_Controller.h" />
-    <QtMoc Include="ChatClientCore.h" />
+    <QtMoc Include="MessageManagerClient.h" />
     <ClInclude Include="Share.h" />
     <QtMoc Include="MainUiController.h" />
   </ItemGroup>
