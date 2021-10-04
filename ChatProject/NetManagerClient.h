@@ -18,17 +18,21 @@ public:
 public:
 	// vector<QTcpSocket*>& getClient();
 
+	QAbstractSocket::SocketState currentNetworkState();
 
 public:
 	// Slots
-	void slotReceiveMessage();
+	
 	void slotTryToConnectToServer();
 	void slotSendMessage(const string m);
+
+protected:
+	void slotReceiveMessage();
 
 signals:
 	void signalReceiveMessage(string s);
 signals:
-	void signalDisconnected(QTcpSocket* socket);
+	void signalDisconnected();
 
 
 private:

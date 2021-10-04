@@ -48,3 +48,6 @@ void NetManagerClient::slotTryToConnectToServer() {
 	}
 
 }
+QAbstractSocket::SocketState NetManagerClient::currentNetworkState() {
+	return m_Socket->state();
+}

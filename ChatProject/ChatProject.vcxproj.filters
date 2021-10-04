@@ -72,11 +72,17 @@
     <Filter Include="Header Files\NetLayer">
       <UniqueIdentifier>{64c2ba28-bf90-4b3e-9c26-9c6bc9b6f0bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\CommunicateLayer">
+    <Filter Include="Source Files\MessageLayer">
+      <UniqueIdentifier>{2e0d8db9-5250-4741-a551-6f1095312037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MessageLayer">
       <UniqueIdentifier>{d78ca225-4015-4a59-b5dc-b01c847c9dbc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CommunicateLayer">
-      <UniqueIdentifier>{2e0d8db9-5250-4741-a551-6f1095312037}</UniqueIdentifier>
+    <Filter Include="Header Files\MessageProcessLayer">
+      <UniqueIdentifier>{cc861432-5b59-4055-ac14-70b7313a3e2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MessageProcessLayer">
+      <UniqueIdentifier>{a8cfecf0-79b5-4d1e-8db1-7c6826cfda55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +140,7 @@
       <Filter>Source Files\WidgetController\Widget_MainUiController</Filter>
     </ClCompile>
     <ClCompile Include="ChatClientCore.cpp">
-      <Filter>Source Files\CommunicateLayer</Filter>
+      <Filter>Source Files\MessageLayer</Filter>
     </ClCompile>
     <ClCompile Include="ChatClientApp.cpp">
       <Filter>Source Files\WidgetController</Filter>
@@ -189,7 +195,7 @@
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
     </QtMoc>
     <QtMoc Include="ChatClientCore.h">
-      <Filter>Header Files\CommunicateLayer</Filter>
+      <Filter>Header Files\MessageLayer</Filter>
     </QtMoc>
     <QtMoc Include="ChatClientApp.h">
       <Filter>Header Files\WidgetController</Filter>
