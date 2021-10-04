@@ -2,13 +2,13 @@
 ChatClientApp::ChatClientApp(QWidget *parent)
     : QMainWindow(parent)
 {
-    m_ChatClientCore = new ChatClientCore();
+    m_MessageProcessCore = new MessageProcessCore();
     
-    connect(m_ChatClientCore, &ChatClientCore::signal_RegisterSucceed,
+    connect(m_MessageProcessCore, &MessageProcessCore::signal_RegisterSucceed,
         this, &ChatClientApp::slotRegisterSucceed);
-    connect(m_ChatClientCore, &ChatClientCore::signal_LogInSucceed,
+    connect(m_MessageProcessCore, &MessageProcessCore::signal_LogInSucceed,
         this, &ChatClientApp::slotLogInSucceed);
-    connect(m_ChatClientCore, &ChatClientCore::signal_NewMessage,
+    connect(m_MessageProcessCore, &MessageProcessCore::signal_NewMessage,
         this, &ChatClientApp::slotNewMessage);
     
     ui.setupUi(this);
@@ -85,8 +85,7 @@ void ChatClientApp::slotRegisterByMail(string mail, string pwd) {
     qDebug() << "ChatClientApp slot Register By Mail end";
 }
 void ChatClientApp::sendMessage(Message m) {
-    m_ChatClientCore->sendMessage(m);
-
+    m_MessageProcessCore->sendMessage(m);
 }
 void ChatClientApp::setPageLogInRegisterWindow() {
     

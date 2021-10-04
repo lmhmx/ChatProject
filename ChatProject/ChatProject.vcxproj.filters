@@ -203,6 +203,9 @@
     <QtMoc Include="ChatClientApp.h">
       <Filter>Header Files\WidgetController</Filter>
     </QtMoc>
+    <QtMoc Include="MessageProcessCore.h">
+      <Filter>Header Files\MessageProcessLayer</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h">
@@ -234,9 +237,6 @@
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageProcessCore.h">
-      <Filter>Header Files\MessageProcessLayer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

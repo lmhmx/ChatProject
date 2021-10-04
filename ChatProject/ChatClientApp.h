@@ -6,7 +6,7 @@
 # include "NetManagerClient.h"
 # include "Share.h"
 # include "MainUiController.h"
-# include "ChatClientCore.h"
+# include "MessageProcessCore.h"
 class ChatClientApp : public QMainWindow
 {
     Q_OBJECT
@@ -54,7 +54,7 @@ private:
 
 private:
 
-    ChatClientCore* m_ChatClientCore;
+    MessageProcessCore* m_MessageProcessCore;
     Ui::ChatClientAppClass ui;
 
 };
