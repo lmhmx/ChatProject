@@ -157,7 +157,7 @@
     <QtMoc Include="Widget_SearchUiController.h" />
     <QtMoc Include="Widget_MessageSend_Controller.h" />
     <QtMoc Include="MessageProcessCore.h" />
-    <ClInclude Include="Widget_addFriendUiController.h" />
+    <QtMoc Include="Widget_addFriendUiController.h" />
     <ClInclude Include="Widget_MessageShow_Controller.h" />
     <QtMoc Include="Widget_ChatList_Controller.h" />
     <QtMoc Include="Widget_ChatItem_Controller.h" />

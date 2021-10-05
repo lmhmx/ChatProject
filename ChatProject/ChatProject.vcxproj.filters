@@ -242,6 +242,9 @@
     <QtMoc Include="Widget_SearchFriendUiController.h">
       <Filter>Header Files\WidgetController\Widget_SeachUiController</Filter>
     </QtMoc>
+    <QtMoc Include="Widget_addFriendUiController.h">
+      <Filter>Header Files\WidgetController\Widget_AddFriendUiController</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ChatServer\Group.h">
@@ -273,9 +276,6 @@
     </ClInclude>
     <ClInclude Include="Widget_MessageShow_Controller.h">
       <Filter>Header Files\WidgetController\Widget_MainUiController</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget_addFriendUiController.h">
-      <Filter>Header Files\WidgetController\Widget_AddFriendUiController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

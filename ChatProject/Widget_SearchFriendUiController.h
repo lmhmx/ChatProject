@@ -15,6 +15,7 @@ public:
 
 signals:
 	void signal_searchFriend(string id);
+signals:
 	void signal_addFriend(string friend_id, string friend_name);
 
 signals:
