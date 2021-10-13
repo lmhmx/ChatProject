@@ -3,6 +3,7 @@
 # include <vector>
 # include <fstream>
 # include <ctime>
+# include <qdebug.h>
 using namespace std;
 string addEscapeCharacter(string s, char c);
 string deleteEscapeCharacter(string s, char c);
@@ -11,3 +12,4 @@ string strftime(string format = "%Y:-%m-%d %H:%M:%S", time_t t = time(0), int bu
 char getRandomFromVector(vector<char> v);
 vector<vector<string>> load_CSV(string file, string separator=",");
 void save_To_CSV(string file, const vector<vector<string>>& v, string separator = ",");
+void logger(string s);

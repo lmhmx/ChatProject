@@ -147,3 +147,6 @@ void save_To_CSV(string file, const vector<vector<string>>& v, string separator)
 	ofile << s;
 	ofile.close();
 }
+void logger(string s) {
+	qDebug() << s.c_str();
+}
