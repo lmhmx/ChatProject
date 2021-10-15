@@ -129,6 +129,7 @@
     <ClCompile Include="ChatClientApp.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="Widget_addFriend.ui" />
+    <QtUic Include="Widget_search.ui" />
     <QtUic Include="Widget_searchFriend.ui" />
     <QtUic Include="Widget_ChatItem.ui" />
     <QtUic Include="Widget_ChatList.ui" />

@@ -11,6 +11,7 @@
 # include "Widget_ChatList_Controller.h"
 # include "Widget_MessageSend_Controller.h"
 # include "Widget_MessageShow_Controller.h"
+# include "Widget_SearchUiController.h"
 # include "Share.h"
 
 using namespace std;
@@ -40,11 +41,12 @@ private:
     
 
 protected:
+    // 接收列表的信号
     void slot_SelectChanged();
-
-
-protected:
-    void slot_SendMessage(MessageContent m);
+    // 接收点击+号的信号
+    void slot_SearchClicked();
+    // 接收发送enter的信号
+    void slot_SendMessage(string );
 
 private:
     
@@ -57,10 +59,12 @@ private:
     Widget_ChatList_Controller* m_ChatList_Controller;
     Widget_MessageSend_Controller* m_MessageSend_Controller;
     Widget_MessageShow_Controller* m_MessageShow_Controller;
-
+    
 private:
     Ui::Widget_Main ui_main;
     
-    
+private:
+    User m_currentUser;
+
 };
 

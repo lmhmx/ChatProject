@@ -84,9 +84,6 @@
     <Filter Include="Source Files\MessageProcessLayer">
       <UniqueIdentifier>{a8cfecf0-79b5-4d1e-8db1-7c6826cfda55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Form Files\Widget_Search">
-      <UniqueIdentifier>{3a1ce595-9f10-4e74-9f5b-e314be4e7fca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\WidgetController\Widget_SearchUiController">
       <UniqueIdentifier>{b3f8f8e4-44ab-429c-a993-ca3485cb752d}</UniqueIdentifier>
     </Filter>
@@ -98,6 +95,12 @@
     </Filter>
     <Filter Include="Source Files\WidgetController\Widget_AddFriendUiController">
       <UniqueIdentifier>{ed4821b2-488f-4d87-b4b5-7bf5a62715c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\UiSearch">
+      <UniqueIdentifier>{3a1ce595-9f10-4e74-9f5b-e314be4e7fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\UiAddFriend">
+      <UniqueIdentifier>{38c3c7be-774f-47a7-b038-354f84792fee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,11 +204,14 @@
     <QtUic Include="Widget_ChatItem.ui">
       <Filter>Form Files\UiMain</Filter>
     </QtUic>
-    <QtUic Include="Widget_addFriend.ui">
-      <Filter>Form Files\Widget_Search</Filter>
-    </QtUic>
     <QtUic Include="Widget_searchFriend.ui">
-      <Filter>Form Files\Widget_Search</Filter>
+      <Filter>Form Files\UiSearch</Filter>
+    </QtUic>
+    <QtUic Include="Widget_addFriend.ui">
+      <Filter>Form Files\UiAddFriend</Filter>
+    </QtUic>
+    <QtUic Include="Widget_search.ui">
+      <Filter>Form Files\UiSearch</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>

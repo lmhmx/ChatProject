@@ -14,7 +14,7 @@ protected:
 	void keyPressEvent(QKeyEvent* ev);
 
 signals:
-	void signal_SendMessage(MessageContent messagecontent);
+	void signal_SendMessage(string message_text);
 
 protected:
 	void slot_SendMessage();
