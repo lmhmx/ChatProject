@@ -25,10 +25,11 @@ public:
 
 
 public:
-    void newMessage(Message message);
+    void newMessage(map<string,string> m);
 
 signals:
-    void signal_SendMessage(Message m);
+    // 发送MainUi到更高级的信息，利用map中的元素进行命令控制
+    void signal_SendMessage(map<string,string> m);
 
 
 public:
@@ -46,7 +47,7 @@ protected:
     // 接收点击+号的信号
     void slot_SearchClicked();
     // 接收发送enter的信号
-    void slot_SendMessage(string );
+    void slot_SendMessage(string message_text);
 
 private:
     

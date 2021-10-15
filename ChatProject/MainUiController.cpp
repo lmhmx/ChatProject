@@ -17,30 +17,42 @@ MainUiController::MainUiController( QWidget* parent):QWidget(parent) {
 		this, &MainUiController::slot_SendMessage);
 }
 void MainUiController::slot_SendMessage(string message_text) {
-
+	map<string, string> message;
+	message.insert({ "TYPE","MESSAGE_TEXT" });
+	message.insert({"MESSAGE_TEXT",message_text});
+	message.insert({ "MESSAGE_RECEIVER",m_ChatList_Controller->currentSelectionID() });
+	emit signal_SendMessage(message);
 }
 void MainUiController::slot_SearchClicked() {
 	Widget_SearchUiController* searchWindow = new  Widget_SearchUiController(this);
 	connect(searchWindow, &Widget_SearchUiController::signal_searchFriend,
 		[=](string id) {
-			Message m;
-			m.m_MessageType = MessageType::MessageType::COMMAND;
-			m.m_MessageSender = m_currentUser.m_UserID;
-			m.m_MessageContent.m_MessageContentType =
-				MessageContentType::MessageContentType::COMMAND_searchUser_request;
-			m.m_MessageContent.m_Content.insert({ "SEARCH_USER",id });
+			map<string, string> message;
+			message.insert({ "TYPE","COMMAND" });
+			message.insert({ "COMMAND","SEARCH" });
+			message.insert({ "SEARCH_ID",id });
+			emit signal_SendMessage(message);
 		});
 	
 }
-void MainUiController::newMessage(Message message) {
-	string uid = message.m_MessageSender;
+void MainUiController::newMessage(map<string,string> message) {
+	string message_type = message["TYPE"];
+	// 可能的类型
+	// MESSAGE_TEXT  包含 RECEIVER、MESSAGE_TEXT
+	// COMMAND       包含 SEARCH_RESULT,SEARCH_RESULT 含有 YOUR_NAME,ID,NAME
+	// ... 
 
-	if (m_Messages.find(uid) == m_Messages.end()) {
-		m_Messages[uid] = vector<Message>();
-		m_Messages[uid].push_back(message);
+	if (message_type == "MESSAGE_TEXT") {
+		
+	}
+	else if(message_type == "SEARCH_RESULT"){
+
+	}
+	else {
+		qDebug() << "error happened in mainui and chatappclient, the message format is wrong";
 	}
 
-	this->m_ChatList_Controller->setItem(uid, 1, QPixmap(), "name", "message", "time", true);
+	// this->m_ChatList_Controller->setItem(uid, 1, QPixmap(), "name", "message", "time", true);
 	
 }
 
